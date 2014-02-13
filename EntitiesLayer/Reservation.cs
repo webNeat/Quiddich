@@ -12,6 +12,6 @@ namespace EntitiesLayer
         int nbplacesReserves;
         Spectateur spectateur;
 
-        Reservation() { }
+        public Reservation() { }
     }
 }

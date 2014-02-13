@@ -10,8 +10,8 @@ namespace EntitiesLayer
     {
         string adresse;
         string email;
-        Spectateur() { }
-        Spectateur(string adresse, string email, DateTime dateNaissance, string nom, string prenom): base(dateNaissance, nom, prenom)
+        public Spectateur() { }
+        public Spectateur(string adresse, string email, DateTime dateNaissance, string nom, string prenom): base(dateNaissance, nom, prenom)
         {
             this.adresse = adresse;
             this.email = email;

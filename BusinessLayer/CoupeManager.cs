@@ -84,12 +84,11 @@ namespace BusinessLayer
             return data.getMatches();
         }
 
-
         public List<string> matchesOf(int coupeId) {
             List<Match> matches = data.getMatches();
             List<string> query = (List<string>)
                 from m in matches
-                where m.getCoupeId() == coupeId
+                where m.CoupeId == coupeId
                 select m.ToString();
             return query;
         }
@@ -101,7 +100,7 @@ namespace BusinessLayer
 
             List<string> query = (List<string>)
                     from s in stades 
-                    where (from m in matches where m.getStade() == s && m.getCoupeId() == coupeId select m).Count() > 0
+                    where (from m in matches where m.Stade == s && m.CoupeId == coupeId select m).Count() > 0
                     select s.ToString();
             return query;
         }
@@ -115,7 +114,7 @@ namespace BusinessLayer
                     from j in joueurs
                     where j.Poste == PosteJoueur.Attrapeur &&
                     (from e in equipes
-                     where (from m in matches where m.getCoupeId() == coupeId && m.getEquipeDomicile() == e select m).Count() > 0
+                     where (from m in matches where m.CoupeId == coupeId && m.EquipeDomicile == e select m).Count() > 0
                          && (from jj in e.getJoueurs() where jj == j select jj).Count() > 0
                      select e
                     ).Count() > 0

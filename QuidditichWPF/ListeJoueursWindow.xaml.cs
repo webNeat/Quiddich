@@ -27,7 +27,7 @@ namespace QuidditichWPF
             Pilotage.LoadPreferences(this);
             cm = new CoupeManager();
             listequipe.ItemsSource = cm.allEquipes();
-            cbpostes.ItemsSource = Enum.GetValues(typeof(PosteJoueur));
+            // cbpostes.ItemsSource = Enum.GetValues(typeof(PosteJoueur));
         }
 
         private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
