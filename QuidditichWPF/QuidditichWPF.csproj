@@ -60,6 +60,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CtrlReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListeCoupesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +98,9 @@
     </Compile>
     <Compile Include="Authentification.xaml.cs">
       <DependentUpon>Authentification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlReservation.xaml.cs">
+      <DependentUpon>CtrlReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListeCoupesWindow.xaml.cs">
       <DependentUpon>ListeCoupesWindow.xaml</DependentUpon>

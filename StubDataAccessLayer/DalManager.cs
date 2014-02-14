@@ -106,6 +106,12 @@ namespace StubDataAccessLayer
         {
             joueurs.Add(joueur);
         }
+
+        public void addStade(Stade s)
+        {
+            stades.Add(s);
+        }
+
         public void deleteEquipe(Equipe equipe)
         {
             equipes.Remove(equipe);
@@ -113,6 +119,10 @@ namespace StubDataAccessLayer
         public void deleteJoueur(Joueur joueur)
         {
             joueurs.Remove(joueur);
+        }
+        public void deleteStade(Stade s)
+        {
+            stades.Remove(s);
         }
         public List<Match> getMatchesById(int idCoupe)
         {

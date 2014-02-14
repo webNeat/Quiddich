@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessLayer;
 
 namespace QuidditichWPF
 {
@@ -21,6 +22,7 @@ namespace QuidditichWPF
     /// </summary>
     public partial class ListeequipesWindow : Window
     {
+        private CoupeManager cm = new CoupeManager();
         public ListeequipesWindow()
         {
             InitializeComponent();
@@ -40,6 +42,25 @@ namespace QuidditichWPF
         private void ListeEquipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataContext = ListeEquipes.SelectedItem;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cm.addEquipe(nom.Text, pays.Text);
+            ListeEquipes.ItemsSource = cm.allEquipes();
+            ListeEquipes.Items.Refresh();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ListeEquipes.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            cm.deleteEquipe((Equipe)ListeEquipes.SelectedItem);
+            ListeEquipes.ItemsSource = cm.allEquipes();
+            ListeEquipes.Items.Refresh();
         }
     }
 }

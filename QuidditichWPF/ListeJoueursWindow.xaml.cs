@@ -27,7 +27,7 @@ namespace QuidditichWPF
             Pilotage.LoadPreferences(this);
             cm = new CoupeManager();
             listequipe.ItemsSource = cm.allEquipes();
-            // cbpostes.ItemsSource = Enum.GetValues(typeof(PosteJoueur));
+            cbpostes.ItemsSource = Enum.GetValues(typeof(PosteJoueur));
         }
 
         private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -37,8 +37,8 @@ namespace QuidditichWPF
 
         private void listeequipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
+           
+            joueurs.ItemsSource = ((Equipe) listequipe.SelectedItem).getJoueurs();
         }
 
         protected override void OnClosed(EventArgs e)
@@ -49,7 +49,7 @@ namespace QuidditichWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            cm.addJoueur(nom.Text, prenom.Text, Convert.ToInt32(score.Text), (PosteJoueur)cbpostes.SelectedItem, Convert.ToInt32(selections.Text));
+            cm.addJoueur(nom.Text, prenom.Text, Convert.ToInt32(score.Text) , (PosteJoueur) cbpostes.SelectedItem, Convert.ToInt32(selections.Text));
             listequipe.ItemsSource = cm.allEquipes();
             listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();

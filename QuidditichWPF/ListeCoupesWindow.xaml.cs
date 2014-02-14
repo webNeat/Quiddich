@@ -20,6 +20,7 @@ namespace QuidditichWPF
     /// </summary>
     public partial class ListeCoupesWindow : Window
     {
+        private CoupeManager cm = new CoupeManager();
         public ListeCoupesWindow()
         {
             InitializeComponent();
@@ -29,26 +30,35 @@ namespace QuidditichWPF
             Coupe coupe = new Coupe();
             this.DataContext = coupe;
         }
-        
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void listecoupe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.DataContext = listecoupe.SelectedItem;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         protected override void OnClosed(EventArgs e)
         {
             Pilotage.SavePreferences(this);
             base.OnClosed(e);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            listecoupe.Items.Refresh();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cm.deleteCoupe((Coupe)listecoupe.SelectedItem);
+            listecoupe.ItemsSource = cm.allCoupes();
+            listecoupe.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            cm.addCoupe(Convert.ToInt32(year.Text), label.Text);
+            listecoupe.ItemsSource = cm.allCoupes();
+            listecoupe.Items.Refresh();
         }
     }
 }

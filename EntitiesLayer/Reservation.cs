@@ -8,7 +8,13 @@ namespace EntitiesLayer
 {
     class Reservation : EntityObject
     {
-        Match match;
+        Coupe MyCoupe { get; set; }
+        Match MyMatch { get; set; }
+        string Nom { get; set; }
+        string Prenom { get; set; }
+        string Adresse { get; set; }
+        int Places { get; set; }
+        double Prix { get; set; }
         int nbplacesReserves;
         Spectateur spectateur;
 

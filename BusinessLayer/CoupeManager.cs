@@ -54,6 +54,11 @@ namespace BusinessLayer
             data.addJoueur(new Joueur(slections, score, poste, new DateTime(), nom, prenom));
         }
 
+        public void addStade(string nom, string adresse, int places, double p)
+        {
+            data.addStade(new Stade(nom, adresse, places, p));
+        }
+
         public void deleteEquipe(Equipe equipe)
         {
             data.deleteEquipe(equipe);
@@ -61,6 +66,10 @@ namespace BusinessLayer
         public void deleteJoueur(Joueur joueur)
         {
             data.deleteJoueur(joueur);
+        }
+        public void deleteStade(Stade s)
+        {
+            data.deleteStade(s);
         }
         public void deleteCoupe(Coupe coupe)
         {
