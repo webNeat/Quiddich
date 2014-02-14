@@ -8,10 +8,6 @@ namespace EntitiesLayer
 {
     public class Stade : EntityObject
     {
-        string adresse;
-        string nom;
-        int nombrePlaces;
-        double pourcentageCommission;
         public string Nom
         {
              get;
@@ -22,29 +18,29 @@ namespace EntitiesLayer
             get;
             set;
         }
-        public string Places
+        public int Places
         {
             get;
             set;
         }
-        public string Pourcentages
+        public double Pourcentage
         {
             get;
             set;
         }
 
         public Stade() { }
-        public Stade(string adresse, string nom, int nbplaces, double poureCommission) 
+        public Stade(string nom, string adresse, int nbplaces, double poureCommission) 
         {
-            this.adresse = adresse;
-            this.nom = nom;
-            this.nombrePlaces = nbplaces;
-            this.pourcentageCommission = poureCommission;
+            this.Adresse = adresse;
+            this.Nom = nom;
+            this.Places = nbplaces;
+            this.Pourcentage = poureCommission;
         }
 
         public override string ToString()
         {
-            return  nom ;
+            return  Nom;
         }
     }
 }

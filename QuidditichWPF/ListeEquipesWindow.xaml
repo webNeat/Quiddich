@@ -8,16 +8,16 @@
             <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="242" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Height="35" HorizontalAlignment="Stretch" Margin="2 6 2 6">
                     <Label Content="Nom : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Nom}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Nom}" Name="nom" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2 6 2 6">
                     <Label Content="Pays : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Pays}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Pays}" Name="pays" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="35" Width="195" Margin="2 6 2 6">
-                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" />
-                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" />
-                    <Button Content="Supprimer" Width="60" Margin="5 0 0 0" />
+                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" Click="Button_Click" />
+                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" Click="Button_Click_1" />
+                    <Button Content="Supprimer" Width="60" Margin="5 0 0 0" Click="Button_Click_2" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>

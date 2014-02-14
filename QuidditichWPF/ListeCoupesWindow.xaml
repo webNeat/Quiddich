@@ -8,16 +8,16 @@
             <StackPanel Height="160" Margin="0,1,0,0" VerticalAlignment="Top" Width="303">
                 <StackPanel HorizontalAlignment="Left" Height="33" Width="290" Orientation="Horizontal">
                     <Label Content="Année : "  HorizontalAlignment="Left"  Margin="10,0,0,0" Width="56"/>
-                    <TextBox  TextWrapping="Wrap"  Text="{Binding Year}" VerticalAlignment="Top" Width="213" Height="25" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox  TextWrapping="Wrap"  Text="{Binding Year}" VerticalAlignment="Top" Name="year" Width="213" Height="25"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="33" Width="290" Orientation="Horizontal">
                     <Label Content="Libellé :" HorizontalAlignment="Left"  Margin="10,0,0,0" Width="56"/>
-                    <TextBox  TextWrapping="Wrap"  Text="{Binding Label}" VerticalAlignment="Top" Width="219" Height="25" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox  TextWrapping="Wrap"  Text="{Binding Label}" Name="label" VerticalAlignment="Top" Width="219" Height="25"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="right" Height="39" Width="227" Orientation="Horizontal">
-                    <Button Content="Supprimer" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72"/>
+                    <Button Content="Supprimer" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click"/>
                     <Button Content="Modifier" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_1"/>
-                    <Button Content="Ajouter" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72"/>
+                    <Button Content="Ajouter" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_2"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

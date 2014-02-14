@@ -8,24 +8,24 @@
             <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="242" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Height="35" HorizontalAlignment="Stretch" Margin="2 6 2 6">
                     <Label Content="Nom : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Nom}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Nom}" Name="nom" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2 6 2 6">
                     <Label Content="Adresse : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Adresse}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Adresse}" Name="adresse" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2 6 2 6">
                     <Label Content="Places : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Places}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Places}" Name="places" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2 6 2 6">
                     <Label Content="Pourcentage com : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Pourcentage}" Margin="5 0 5 0" Width="150" />
+                    <TextBox Text="{Binding Pourcentage}" Name="pourcentage" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="35" Width="205" Margin="2 6 2 6">
-                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" />
-                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" />
-                    <Button Content="Supprimer" Width="70" Margin="5 0 0 0" />
+                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" Click="Button_Click_1" />
+                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" Click="Button_Click" />
+                    <Button Content="Supprimer" Width="70" Margin="5 0 0 0" Click="Button_Click_2" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>

@@ -21,6 +21,7 @@ namespace QuidditichWPF
     /// </summary>
     public partial class ListestadesWindow : Window
     {
+        private CoupeManager cm = new CoupeManager();
         public ListestadesWindow()
         {
             InitializeComponent();
@@ -39,7 +40,30 @@ namespace QuidditichWPF
 
         private void ListeStades_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataContext = ListeStades.SelectedItem;
+            this.DataContext = ListeStades.SelectedItem;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ListeStades.Items.Refresh();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int nbrePlaces;
+            double percent;
+            Int32.TryParse(places.Text, out nbrePlaces);
+            Double.TryParse(pourcentage.Text, out percent);
+            cm.addStade(nom.Text, adresse.Text, nbrePlaces, percent);
+            ListeStades.ItemsSource = cm.allStades();
+            ListeStades.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            cm.deleteStade((Stade)ListeStades.SelectedItem);
+            ListeStades.ItemsSource = cm.allStades();
+            ListeStades.Items.Refresh();
         }
     }
 }
