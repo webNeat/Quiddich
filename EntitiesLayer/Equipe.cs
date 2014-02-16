@@ -56,5 +56,9 @@ namespace EntitiesLayer
         public List<Joueur> getJoueurs(){
             return joueurs;
         }
+        public void setJoueurs(List<Joueur> joueurs)
+        {
+            this.joueurs = joueurs;
+        }
     }
 }

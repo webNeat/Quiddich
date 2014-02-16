@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubDataAccessLayer", "Stub
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuidditichWPF", "QuidditichWPF\QuidditichWPF.csproj", "{4332BB5B-48B8-4122-AA29-7DB4778150C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{F5D8E35A-1D75-4B85-BD32-CC8E514B98C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{4332BB5B-48B8-4122-AA29-7DB4778150C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4332BB5B-48B8-4122-AA29-7DB4778150C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4332BB5B-48B8-4122-AA29-7DB4778150C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D8E35A-1D75-4B85-BD32-CC8E514B98C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D8E35A-1D75-4B85-BD32-CC8E514B98C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D8E35A-1D75-4B85-BD32-CC8E514B98C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D8E35A-1D75-4B85-BD32-CC8E514B98C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

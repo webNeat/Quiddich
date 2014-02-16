@@ -1,6 +1,4 @@
-﻿using BusinessLayer;
-using EntitiesLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,33 +11,31 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using EntitiesLayer;
+using BusinessLayer;
 namespace QuidditichWPF
 {
     /// <summary>
-    /// Logique d'interaction pour ListestadeesWindow.xaml
+    /// Logique d'interaction pour ListeStadesWindow.xaml
     /// </summary>
-    public partial class ListestadesWindow : Window
+    public partial class ListeStadesWindow : Window
     {
-        public ListestadesWindow()
+        public ListeStadesWindow()
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
             CoupeManager cm = new CoupeManager();
-            ListeStades.ItemsSource = cm.allStades();
-            Stade stade = new Stade();
-            this.DataContext = stade;
+            stades.ItemsSource =  cm.allStades();
         }
-
         protected override void OnClosed(EventArgs e)
         {
             Pilotage.SavePreferences(this);
             base.OnClosed(e);
         }
 
-        private void ListeStades_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void stades_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataContext = ListeStades.SelectedItem;
+
         }
     }
 }

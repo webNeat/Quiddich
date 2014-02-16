@@ -33,7 +33,7 @@ namespace EntitiesLayer
             set;
         }
 
-        public Stade() { }
+        Stade() { }
         public Stade(string adresse, string nom, int nbplaces, double poureCommission) 
         {
             this.adresse = adresse;

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BusinessLayer;
 using EntitiesLayer;
+
 namespace QuidditichWPF
 {
     /// <summary>
@@ -20,11 +21,12 @@ namespace QuidditichWPF
     /// </summary>
     public partial class ListeCoupesWindow : Window
     {
+        CoupeManager cm;
         public ListeCoupesWindow()
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
-            CoupeManager cm = new CoupeManager();
+            cm = new CoupeManager();
             listecoupe.ItemsSource =  cm.allCoupes();
             Coupe coupe = new Coupe();
             this.DataContext = coupe;
@@ -42,13 +44,30 @@ namespace QuidditichWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            listecoupe.Items.Refresh();
         }
 
         protected override void OnClosed(EventArgs e)
         {
             Pilotage.SavePreferences(this);
             base.OnClosed(e);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            cm.addCoupe(Convert.ToInt32(yeartxt.Text), libelletxt.Text);
+            listecoupe.ItemsSource = cm.allCoupes();
+            listecoupe.Items.Refresh();
+
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            cm.deleteCoupe((Coupe)listecoupe.SelectedItem);
+            listecoupe.ItemsSource = cm.allCoupes();
+            listecoupe.Items.Refresh();
         }
     }
 }

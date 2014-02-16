@@ -5,44 +5,46 @@ using System.Text;
 using System.Threading.Tasks;
 using EntitiesLayer;
 using StubDataAccessLayer;
-
+using DAO;
 namespace BusinessLayer
 {
-   public  class CoupeManager
-   {
-        private DalManager data;
+    public class CoupeManager
+    {
+       // private DalManager data;
+        private IDAL data;
 
         public CoupeManager()
         {
-            data = new DalManager();
+            data = DALManager.GetInstance(DALProvider.SQLSERVER);
         }
-       /*
-        public static List<string> allCoupes(){
 
-            List<Coupe> coupes = data.getCoupes();
-            List<string> query = (List<string>)
-                from c in coupes
-                select c.ToString();
-            return query;
-        }
-       */
-        public List<Coupe> allCoupes()
+        public IList<Equipe> allEquipes()
         {
-
-            List<Coupe> coupes = data.getCoupes();
-            /*List<Coupe> query = (List<Coupe>)
-                from c in coupes
-                select c;*/
-            return coupes;
+            return data.getEquipes();
         }
-        public List<Joueur> allJoueurs()
+
+
+
+        public IList<Joueur> allJoueurs()
         {
             return data.getJoueurs();
         }
-        public List<Match> allMatchOfCoupe(int idCoupe)
+
+        public IList<Coupe> allCoupes()
         {
-            return data.getMatchesById(idCoupe);
+
+
+            /*list<coupe> query = (list<coupe>)
+                from c in coupes
+                select c;*/
+            return data.getCoupes();
         }
+
+        public IList<Match> allMatchofCoupe(int idcoupe)
+        {
+            return data.getMatchesByid(idcoupe);
+        }
+
         public void addCoupe(int year, string libelle)
         {
             data.addCoupe(new Coupe(year, libelle));
@@ -71,64 +73,82 @@ namespace BusinessLayer
             data.addEquipe(new Equipe(nom, pays));
 
         }
-        public List<Equipe> allEquipes()
-        {
-            return data.getEquipes();
-        }
-        public List<Stade> allStades()
+
+
+        public IList<Stade> allStades()
         {
             return data.getStades();
         }
-        public List<Match> allMatches()
+        public IList<Match> allMatches()
         {
-            return data.getMatches();
+            return data.getMatchs();
         }
 
-        public List<string> matchesOf(int coupeId) {
-            List<Match> matches = data.getMatches();
-            List<string> query = (List<string>)
-                from m in matches
-                where m.CoupeId == coupeId
-                select m.ToString();
-            return query;
-        }
 
-        public List<string> stadeOf(int coupeId)
+
+        public Utilisateur Login(string login, string password)
         {
-            List<Match> matches = data.getMatches();
-            List<Stade> stades = data.getStades();
-
-            List<string> query = (List<string>)
-                    from s in stades 
-                    where (from m in matches where m.Stade == s && m.CoupeId == coupeId select m).Count() > 0
-                    select s.ToString();
-            return query;
-        }
-
-        public List<string> joueursDomicleOf(int coupeId) {
-            List<Match> matches = data.getMatches();
-            List<Equipe> equipes = data.getEquipes();
-            List<Joueur> joueurs = data.getJoueurs();
-
-            List<string> query = (List<string>)
-                    from j in joueurs
-                    where j.Poste == PosteJoueur.Attrapeur &&
-                    (from e in equipes
-                     where (from m in matches where m.CoupeId == coupeId && m.EquipeDomicile == e select m).Count() > 0
-                         && (from jj in e.getJoueurs() where jj == j select jj).Count() > 0
-                     select e
-                    ).Count() > 0
-                    select j.ToString();
-            return query;
-            
-        }
-
-        public Utilisateur Login(string login, string password) {
             Utilisateur user = data.getUtilisateurByLogin(login);
-            if(user !=  null)
-                if(user.getPassword().Equals(password))
+            if (user != null)
+                if (user.getPassword().Equals(password))
                     return user;
-            return null;        
+            return null;
         }
+
+
+        /*
+         public static List<string> allCoupes(){
+
+             List<Coupe> coupes = data.getCoupes();
+             List<string> query = (List<string>)
+                 from c in coupes
+                 select c.ToString();
+             return query;
+         }
+        */
+
+        /*
+     public List<string> matchesOf(int coupeId) {
+         List<Match> matches = data.getMatches();
+         List<string> query = (List<string>)
+             from m in matches
+             where m.getCoupeId() == coupeId
+             select m.ToString();
+         return query;
+     }
+
+     public List<string> stadeOf(int coupeId)
+     {
+         List<Match> matches = data.getMatches();
+         List<Stade> stades = data.getStades();
+
+         List<string> query = (List<string>)
+                 from s in stades 
+                 where (from m in matches where m.getStade() == s && m.getCoupeId() == coupeId select m).Count() > 0
+                 select s.ToString();
+         return query;
+     }
+
+     public List<string> joueursDomicleOf(int coupeId) {
+         List<Match> matches = data.getMatches();
+         List<Equipe> equipes = data.getEquipes();
+         List<Joueur> joueurs = data.getJoueurs();
+
+         List<string> query = (List<string>)
+                 from j in joueurs
+                 where j.Poste == PosteJoueur.Attrapeur &&
+                 (from e in equipes
+                  where (from m in matches where m.getCoupeId() == coupeId && m.getEquipeDomicile() == e select m).Count() > 0
+                      && (from jj in e.getJoueurs() where jj == j select jj).Count() > 0
+                  select e
+                 ).Count() > 0
+                 select j.ToString();
+         return query;
+            
+     } */
+
+
+
+
     }
 }

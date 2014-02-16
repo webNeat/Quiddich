@@ -109,8 +109,8 @@ namespace EntitiesLayer
             }
 
         }
-        
-        public Match(){}
+        Match(){}
+
         public Match(int coupeId, DateTime date, Equipe equipeDomicile, Equipe equipeVisiteur, double prix, int scoreVisiteur, int scoreDomicile, Stade stade) 
         {
             this.coupeId = coupeId;
@@ -129,5 +129,8 @@ namespace EntitiesLayer
             return "Match  | coupeId : " + coupeId + " | date :" + date + "Equipe Visiteur : " + equipeVisiteur.Nom + "Equipe Domicile : " + equipeDomicile.Nom + " prix : " + prix + "score D :" + scoreDomicile + " score v : " + scoreVisiteur + " stade : " +  stade.Nom;
         }
 
+      
+       
+       
     }
 }

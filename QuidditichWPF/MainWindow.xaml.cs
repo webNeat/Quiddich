@@ -49,7 +49,7 @@ namespace QuidditichWPF
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            ListestadesWindow gs = new ListestadesWindow();
+            ListeStadesWindow gs = new ListeStadesWindow();
             gs.Show();
             this.Close();
         }

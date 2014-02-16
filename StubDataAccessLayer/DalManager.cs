@@ -16,8 +16,7 @@ namespace StubDataAccessLayer
         List<Coupe> coupes;
         List<Utilisateur> utilisateurs;
 
-        public DalManager()
-        {
+        public DalManager(){
             Joueur joeur1 = new Joueur(5, 12, PosteJoueur.Gardien, new DateTime(1980, 2, 1), "amin", "ben hammou");
             Joueur joeur2 = new Joueur(2, 12, PosteJoueur.Poursuiveur, new DateTime(1978, 10, 11), "Nabil", "Zaini");
             Joueur joeur3 = new Joueur(8, 12, PosteJoueur.Attrapeur, new DateTime(1990, 11, 28), "mohamed", "el gadi");
@@ -63,7 +62,7 @@ namespace StubDataAccessLayer
             stades.Add(stade1);
             stades.Add(stade2);
 
-            Coupe coupe1 = new Coupe(2014, "Champions League");
+            Coupe coupe1 = new Coupe(2014,"Champions League");
             Coupe coupe2 = new Coupe(2013, "Ligue France");
             coupes = new List<Coupe>();
             coupes.Add(coupe1);
@@ -76,7 +75,7 @@ namespace StubDataAccessLayer
 
 
 
-            Utilisateur user1 = new Utilisateur("zaini", "nabil", "nabil.zaini", "123456");
+            Utilisateur user1 = new Utilisateur("zaini","nabil","nabil.zaini","123456");
             Utilisateur user2 = new Utilisateur("benhammo", "amin", "amin.benhamo", "875");
             Utilisateur user3 = new Utilisateur("el gadi", "momo", "momo.gadi", "7855");
             utilisateurs = new List<Utilisateur>();
@@ -90,7 +89,7 @@ namespace StubDataAccessLayer
         public void addCoupe(Coupe coupe)
         {
             coupes.Add(coupe);
-
+        
         }
 
         public void deleteCoupe(Coupe coupe)
@@ -102,7 +101,7 @@ namespace StubDataAccessLayer
             equipes.Add(equipe);
         }
 
-        public void addJoueur(Joueur joueur)
+        public void addJoueur(Joueur joueur ) 
         {
             joueurs.Add(joueur);
         }
@@ -110,32 +109,32 @@ namespace StubDataAccessLayer
         {
             equipes.Remove(equipe);
         }
-        public void deleteJoueur(Joueur joueur)
+        public void deleteJoueur(Joueur joueur) 
         {
             joueurs.Remove(joueur);
         }
-        public List<Match> getMatchesById(int idCoupe)
+        public List<Match> getMatchesById(int idCoupe) 
         {
             List<Match> matchsTmp = new List<Match>();
             for (int i = 0; i < matches.Count; i++)
             {
                 if (matches[i].CoupeId == idCoupe)
                     matchsTmp.Add(matches[i]);
-
+            
             }
             return matchsTmp;
 
-
+        
         }
 
         public Utilisateur getUtilisateurByLogin(string login)
         {
 
-            for (int i = 0; i < utilisateurs.Count; i++)
+            for (int i = 0; i < utilisateurs.Count;i++ )
             {
                 if (utilisateurs[i].getLogin().Equals(login))
                 {
-                    return utilisateurs[i];
+                    return utilisateurs[i]; 
                 }
             }
             return null;
@@ -146,20 +145,18 @@ namespace StubDataAccessLayer
         {
             return joueurs;
         }
-        public List<Equipe> getEquipes()
-        {
+        public List<Equipe> getEquipes(){
             return equipes;
         }
         public List<Stade> getStades()
-        {
-            return stades;
-        }
+        { 
+            return stades; 
+        }        
         public List<Match> getMatches()
         {
             return matches;
         }
-        public List<Coupe> getCoupes()
-        {
+        public List<Coupe> getCoupes() {
             return coupes;
         }
 

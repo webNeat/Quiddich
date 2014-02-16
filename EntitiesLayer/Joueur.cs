@@ -14,6 +14,14 @@ namespace EntitiesLayer
             get { return nbSelections; }
             set { nbSelections = value; }
         }
+        private int equipeId;
+
+        public int EquipeID
+        {
+            get { return equipeId; }
+            set { equipeId = value; }
+        }
+
         private int score;
         public int Score
         {

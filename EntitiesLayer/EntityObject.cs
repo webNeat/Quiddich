@@ -23,6 +23,8 @@ namespace EntitiesLayer
 
         public int getId() {
             return id;
-        }        
+        }
+
+        
     }
 }
