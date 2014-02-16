@@ -15,9 +15,20 @@ namespace EntitiesLayer
         string Adresse { get; set; }
         int Places { get; set; }
         double Prix { get; set; }
-        int nbplacesReserves;
-        Spectateur spectateur;
+        Spectateur MySpectateur { get; set; }
 
         public Reservation() { }
+        public Reservation( Coupe MyCoupe, Match MyMatch, string Nom, string Prenom, string Adresse, int Places, double Prix, Spectateur MySpectateur) 
+        {
+            this.MyCoupe = MyCoupe;
+            this.MyMatch = MyMatch;
+            this.Nom = Nom;
+            this.Prenom = Prenom;
+            this.Adresse = Adresse;
+            this.Places = Places;
+            this.Prix = Prix;
+            this.MySpectateur = MySpectateur;
+        }
+
     }
 }
