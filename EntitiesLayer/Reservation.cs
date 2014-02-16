@@ -29,6 +29,5 @@ namespace EntitiesLayer
             this.Prix = Prix;
             this.MySpectateur = MySpectateur;
         }
-
     }
 }

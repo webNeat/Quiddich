@@ -37,30 +37,13 @@ namespace QuidditichWPF
     class Pilotage
     {
         private static Dictionary<string, WindowPreference> preferences;
-        public static void Init()
-        {
-            preferences = new Dictionary<string, WindowPreference>();
-            AddWindow("Authentification", 200, 200, 200, 200);
-            AddWindow("ListeCoupesWindow", 200, 200, 200, 200);
-            AddWindow("ListeequipesWindow", 200, 200, 200, 200);
-            AddWindow("ListeJoueursWindow", 200, 200, 200, 200);
-            AddWindow("ListeMatchsWindow", 200, 200, 200, 200);
-            AddWindow("ListeReservationsWindow", 200, 200, 200, 200);
-            AddWindow("ListestadesWindow", 200, 200, 200, 200);
-            AddWindow("MainWindow", 200, 200, 200, 200);
-            SaveAll();
-        }
         public static void LoadAll()
         {
-            string userName = Environment.UserName;
-            if (! File.Exists(userName + ".preferences"))
-            {
-                Init();
-            }
+            /*string userName = Environment.UserName;
             FileStream input = new FileStream(userName + ".preferences", FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
             preferences = (Dictionary<string, WindowPreference>) bf.Deserialize(input);
-            input.Close();
+            input.Close();*/
         }
 
         public static void AddWindow(string name, double width, double height, double top, double left)
@@ -75,31 +58,31 @@ namespace QuidditichWPF
 
         public static void LoadPreferences(Window win)
         {
-            WindowPreference wp = preferences[win.GetType().Name];
+            /*WindowPreference wp = preferences[win.GetType().Name];
             win.Width = wp.Width;
             win.Height = wp.Height;
             win.Top = wp.Top;
-            win.Left = wp.Left;
+            win.Left = wp.Left;*/
         }
 
         public static void SavePreferences(Window win)
         {
-            WindowPreference wp = new WindowPreference();
+            /*WindowPreference wp = new WindowPreference();
             wp.Width = win.Width;
             wp.Height = win.Height;
             wp.Top = win.Top;
             wp.Left = win.Left;
-            preferences[win.GetType().Name] = wp;
+            preferences[win.GetType().Name] = wp;*/
         }
 
         public static void SaveAll()
         {
             // String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string userName = Environment.UserName;
+            /*string userName = Environment.UserName;
             FileStream output = new FileStream(userName + ".preferences", FileMode.Create);
             BinaryFormatter bf = new BinaryFormatter();
             bf.Serialize(output, preferences);
-            output.Close();
+            output.Close();*/
         }
     }
 }

@@ -27,7 +27,6 @@ namespace QuidditichWPF
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
-            CoupeManager cm = new CoupeManager();
             ListeEquipes.ItemsSource = cm.allEquipes();
             Equipe coupe = new Equipe();
             this.DataContext = coupe;
@@ -44,19 +43,19 @@ namespace QuidditichWPF
             DataContext = ListeEquipes.SelectedItem;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             cm.addEquipe(nom.Text, pays.Text);
             ListeEquipes.ItemsSource = cm.allEquipes();
             ListeEquipes.Items.Refresh();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             ListeEquipes.Items.Refresh();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             cm.deleteEquipe((Equipe)ListeEquipes.SelectedItem);
             ListeEquipes.ItemsSource = cm.allEquipes();

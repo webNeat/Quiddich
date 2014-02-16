@@ -29,8 +29,8 @@ namespace EntitiesLayer
             set;
         }
 
-        public Stade() { }
-        public Stade(string nom, string adresse, int nbplaces, double poureCommission) 
+        Stade() { }
+        public Stade(string adresse, string nom, int nbplaces, double poureCommission) 
         {
             this.Adresse = adresse;
             this.Nom = nom;

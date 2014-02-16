@@ -14,10 +14,10 @@
                     <Label Content="Pays : " Margin="5 0 5 0" Width="60" />
                     <TextBox Text="{Binding Pays}" Name="pays" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="35" Width="195" Margin="2 6 2 6">
-                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" Click="Button_Click" />
-                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" Click="Button_Click_1" />
-                    <Button Content="Supprimer" Width="60" Margin="5 0 0 0" Click="Button_Click_2" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30" Width="205" Margin="2 6 2 6">
+                    <Button Content="Ajouter" Width="60" Margin="5 0 0 0" Click="Button_Click_1" />
+                    <Button Content="Modifier" Width="60" Margin="5 0 0 0" Click="Button_Click_2" />
+                    <Button Content="Supprimer" Width="70" Margin="5 0 0 0" Click="Button_Click_3" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>

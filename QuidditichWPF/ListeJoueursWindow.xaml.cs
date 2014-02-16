@@ -21,12 +21,13 @@ namespace QuidditichWPF
     public partial class ListeJoueursWindow : Window
     {
         CoupeManager cm;
+
         public ListeJoueursWindow()
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
             cm = new CoupeManager();
-            listequipe.ItemsSource = cm.AllEquipes();
+            listequipe.ItemsSource = cm.allEquipes();
             cbpostes.ItemsSource = Enum.GetValues(typeof(PosteJoueur));
         }
 
@@ -49,9 +50,9 @@ namespace QuidditichWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            cm.addJoueur(nom.Text, prenom.Text, Convert.ToInt32(score.Text), (PosteJoueur)cbpostes.SelectedItem, Convert.ToInt32(selections.Text));
-            listequipe.ItemsSource = cm.AllEquipes();
-            listequipe.Items.Refresh();
+            cm.addJoueur(nom.Text, prenom.Text, Convert.ToInt32(score.Text) , (PosteJoueur) cbpostes.SelectedItem, Convert.ToInt32(selections.Text));
+            //listequipe.ItemsSource = cm.allEquipes();
+            //listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
         }
@@ -64,8 +65,8 @@ namespace QuidditichWPF
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             cm.deleteJoueur((Joueur)joueurs.SelectedItem);
-            listequipe.ItemsSource = cm.AllEquipes();
-            listequipe.Items.Refresh();
+       //     listequipe.ItemsSource = cm.allEquipes();
+        //    listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
         }

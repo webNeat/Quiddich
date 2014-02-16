@@ -31,10 +31,6 @@ namespace QuidditichWPF
             stades.ItemsSource = cm.allStades();
             equipesV.ItemsSource = cm.allEquipes();
             equipesD.ItemsSource = cm.allEquipes();
-
-
-
-
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -45,7 +41,7 @@ namespace QuidditichWPF
         private void coupes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Coupe coupe = (Coupe)coupes.SelectedItem;
-            List<Match> matchsR = cm.allMatchOfCoupe(coupe.Id);
+            IList<Match> matchsR = cm.allMatchofCoupe(coupe.Id);
             matchs.ItemsSource = matchsR;
         }
 

@@ -34,6 +34,7 @@ namespace EntitiesLayer
             Nom = n;
             Prenom = p;
         }
+
         public string ToString()
         {
             return "Nom : " + Nom + "  prenom :" + Prenom + " Date : " + DateNaissance;
