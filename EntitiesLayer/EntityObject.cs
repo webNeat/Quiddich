@@ -25,6 +25,17 @@ namespace EntitiesLayer
             return id;
         }
 
+        public override bool Equals(object obj)
+        {
+            var item = obj as EntityObject;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.Id.Equals(item.Id);
+        }
         
     }
 }

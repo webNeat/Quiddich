@@ -23,7 +23,10 @@ namespace BusinessLayer
             return data.getEquipes();
         }
 
-
+        public IList<Equipe> allEquipeNames()
+        {
+            return data.getEquipeNames();
+        }
 
         public IList<Joueur> allJoueurs()
         {
@@ -32,8 +35,6 @@ namespace BusinessLayer
 
         public IList<Coupe> allCoupes()
         {
-
-
             /*list<coupe> query = (list<coupe>)
                 from c in coupes
                 select c;*/
@@ -98,6 +99,11 @@ namespace BusinessLayer
         public IList<Match> allMatches()
         {
             return data.getMatchs();
+        }
+
+        public void updateMatch(Match m)
+        {
+            data.updateMatch(m);
         }
 
 

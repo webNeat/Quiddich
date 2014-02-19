@@ -54,6 +54,11 @@ namespace DAO
             return dal.getEquipes();
         }
 
+        public IList<Equipe> getEquipeNames()
+        {
+            return dal.getEquipeNames();
+        }
+
         public IList<Stade> getStades()
         {
             return dal.getStades();
@@ -129,6 +134,31 @@ namespace DAO
         public void deleteMatch(Match match)
         {
             dal.deleteMatch(match);
+        }
+
+        public void updateMatch(Match m)
+        {
+            dataAccessLayer.updateMatch(m);
+        }
+
+        public void updateCoupe(Coupe coupe)
+        {
+            dal.updateCoupe(coupe);
+        }
+
+        public void updateJoueur(Joueur joueur)
+        {
+            dal.updateJoueur(joueur);
+        }
+
+        public void updateEquipe(Equipe equipe)
+        {
+            dal.updateEquipe(equipe);
+        }
+
+        public void updateStade(Stade stade)
+        {
+            dal.updateStade(stade);
         }
     }
 }
