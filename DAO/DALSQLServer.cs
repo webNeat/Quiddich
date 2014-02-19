@@ -113,7 +113,7 @@ namespace DAO
             return equipe;
         
         }
-        public IList<EntitiesLayer.Coupe> getCoupes()
+        public IList<Coupe> getCoupes()
         {
             List<Coupe> coupes = new List<Coupe>();
             DataTable table = SelectElementByRequest("SELECT * FROM Coupes");
@@ -170,7 +170,7 @@ namespace DAO
         public IList<Match> getMatchs()
         {
             List<Match> matches = new List<Match>();
-            DataTable table = SelectElementByRequest("SELECT * FROM Matchs  WHERE ID = 5");
+            DataTable table = SelectElementByRequest("SELECT * FROM Matchs");
 
             foreach (DataRow row in table.Rows)
             {
@@ -212,11 +212,16 @@ namespace DAO
 
         public void addCoupe(Coupe coupe)
         {
-            ExecuteElementByRequest("INSERT INTO Coupes VALUES(NULL , " +  coupe.Year + ")");
+            ExecuteElementByRequest("INSERT INTO Coupes VALUES(" +  coupe.Year + ")");
             
         }
+        public void updateCoupe(Coupe coupe)
+        {
+            ExecuteElementByRequest("UPDATE  Coupes SET Annee = " + coupe.Year + " WHERE ID = " + coupe.Id);
+      
+        }
 
-        public void deleteCoupe(EntitiesLayer.Coupe coupe)
+        public void deleteCoupe(Coupe coupe)
         {
             ExecuteElementByRequest("DELETE FROM Coupes WHERE ID = " + coupe.Id);
       
@@ -225,8 +230,10 @@ namespace DAO
         public void addJoueur(Joueur joueur)
         {
             //Colonne NO_IDENTITY
+
             int posteID = (int)joueur.Poste;
-            ExecuteElementByRequest("INSERT INTO Joueurs VALUES(NULL , '" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ",NULL)");
+
+            ExecuteElementByRequest("INSERT INTO Joueurs VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ",'capitaine')");
 
         }
 
@@ -235,30 +242,46 @@ namespace DAO
             ExecuteElementByRequest("DELETE FROM Joueurs WHERE ID = " + joueur.Id);
 
         }
+        public void addMatch(Match match)
+        {
+            ExecuteElementByRequest("INSERT INTO Matchs VALUES(" + match.CoupeId + "," + match.Stade.Id + "," + match.EquipeDomicile.Id + "," + match.EquipeVisiteur.Id + "," + match.ScoreDomicile + "," + match.ScoreVisiteur + ",'" + match.Date + "')");
 
+        }
+
+        public void deleteMatch(Match match)
+        {
+            ExecuteElementByRequest("DELETE FROM Matchs WHERE ID = " + match.Id);
+
+        }
         public void addStade(Stade stade)
         {
-            // TODO
+            ExecuteElementByRequest("INSERT INTO Stades VALUES('" + stade.Nom + "','" + stade.Adresse + "'," + stade.Places + "," + stade.Pourcentage + ")");   
+       
         }
 
         public void deleteStade(Stade stade)
         {
-            // TODO
+            ExecuteElementByRequest("DELETE FROM Stades WHERE ID = " + stade.Id);
+
         }
 
-        public void addEquipe(EntitiesLayer.Equipe equipe)
+        public void addEquipe(Equipe equipe)
+        {
+            ExecuteElementByRequest("INSERT INTO Equipes VALUES('" + equipe.Pays + "','" + equipe.Nom + "')");   
+        }
+
+        public void deleteEquipe(Equipe equipe)
+        {
+            ExecuteElementByRequest("DELETE FROM Equipes WHERE ID = " + equipe.Id);
+
+        }
+
+        public Utilisateur getUtilisateurByLogin(string login)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteEquipe(EntitiesLayer.Equipe equipe)
-        {
-            throw new NotImplementedException();
-        }
 
-        public EntitiesLayer.Utilisateur getUtilisateurByLogin(string login)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

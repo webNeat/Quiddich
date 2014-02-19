@@ -82,8 +82,15 @@ namespace BusinessLayer
             data.addEquipe(new Equipe(nom, pays));
 
         }
+        public void addMatch(int coupeId, DateTime date, double prix, Stade stade, Equipe equipeD, Equipe equipeV, int scoreD, int scoreV)
+        {
 
-
+            data.addMatch(new Match(coupeId, date, equipeD, equipeV, prix, scoreV, scoreD, stade));
+        }
+        public void deleteMatch(Match match)
+        {
+            data.deleteMatch(match);
+        }
         public IList<Stade> allStades()
         {
             return data.getStades();

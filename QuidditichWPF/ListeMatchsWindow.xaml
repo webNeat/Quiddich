@@ -1,41 +1,46 @@
 ﻿<Window x:Class="QuidditichWPF.ListeMatchsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ListeMatchsWindow" Height="400" Width="600">
-    <Grid>
+        Title="ListeMatchsWindow" Height="440.298" Width="568.657">
+    <Grid HorizontalAlignment="Left" Width="638" Margin="0,0,-77,58">
         <StackPanel HorizontalAlignment="Left" Height="350" Margin="0,10,0,0" VerticalAlignment="Top" Width="182">
             <ComboBox HorizontalAlignment="Left" Height="27" Width="172" Name="coupes" SelectionChanged="coupes_SelectionChanged"/>
             <DataGrid HorizontalAlignment="Left" Height="306" Margin="4,0,0,0" Width="168" Name="matchs" SelectionChanged="matchs_SelectionChanged"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="321" Margin="189,10,0,0" VerticalAlignment="Top" Width="383">
+        <StackPanel HorizontalAlignment="Left" Height="350" Margin="189,10,0,0" VerticalAlignment="Top" Width="374">
             <Label Content="&#x9;Fiche du Match" HorizontalAlignment="Left" Height="38" Margin="53,0,0,0" Width="272" FontSize="18" FontFamily="Tahoma"/>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Date :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <DatePicker Height="30" VerticalAlignment="Top" Width="246" SelectedDate ="{Binding Date}"/>
+                <DatePicker Height="30" VerticalAlignment="Top" Width="246" Name="date" SelectedDate ="{Binding Date}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Prix :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <TextBox Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Text="{Binding Prix}"/>
+                <TextBox Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Name="prix" Text="{Binding Prix}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Stade :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name= "stades" SelectedItem = "{Binding Stade}"/>
+                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name= "stades"   SelectedItem="{Binding Stade}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Equipe Visiteur :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name="equipesV" SelectedItem = "{Binding EquipeVisiteur}"/>
+                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name="equipesV" SelectedItem="{Binding EquipeVisiteur}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Equipe Domicile :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name="equipesD" SelectedItem = "{Binding EquipeDomicile}"/>
+                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name="equipesD" SelectedItem="{Binding EquipeDomicile}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Score Visiteur :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <TextBox Height="30" Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Text="{Binding ScoreVisiteur}"/>
+                <TextBox Height="30" Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Name="scoreVisiteur" Text="{Binding ScoreVisiteur}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Score Domicile :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <TextBox Height="30" Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Text="{Binding ScoreDomicile}"/>
+                <TextBox Height="30" Margin="0,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Name="scoreDomicile" Text="{Binding ScoreDomicile}"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="49" Width="211" Orientation="Horizontal" Margin="162,0,0,0">
+                <Button Content="Supprimer" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="81" Click="Button_Click_3"/>
+                <Button Content="Modifier" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click_2"/>
+                <Button Content="Ajouter" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="56" Click="Button_Click_1"/>
             </StackPanel>
         </StackPanel>
 
