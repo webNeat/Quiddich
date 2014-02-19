@@ -54,6 +54,11 @@ namespace DAO
             return dal.getEquipes();
         }
 
+        public IList<Equipe> getEquipeNames()
+        {
+            return dal.getEquipeNames();
+        }
+
         public IList<Stade> getStades()
         {
             return dal.getStades();
@@ -130,5 +135,11 @@ namespace DAO
         {
             dal.deleteMatch(match);
         }
+
+        public void updateMatch(Match m)
+        {
+            dataAccessLayer.updateMatch(m);
+        }
+
     }
 }

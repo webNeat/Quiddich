@@ -29,12 +29,8 @@ namespace QuidditichWPF
             Pilotage.LoadPreferences(this);
             cm = new CoupeManager();
             coupes.ItemsSource = cm.allCoupes();
-
             stades.ItemsSource = cm.allStades();
-            equipesV.ItemsSource = cm.allEquipes();
-            equipesD.ItemsSource = cm.allEquipes();
-
-      
+            equipesV.ItemsSource = equipesD.ItemsSource = cm.allEquipeNames();
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -66,6 +62,8 @@ namespace QuidditichWPF
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //update
+            cm.updateMatch((Match)DataContext);
+            matchs.ItemsSource = cm.allMatchofCoupe(coupe.Id);
             matchs.Items.Refresh();
             
         }
@@ -77,7 +75,6 @@ namespace QuidditichWPF
             matchs.ItemsSource = matchsR;
             matchs.Items.Refresh();
         }
-
       
     }
 }

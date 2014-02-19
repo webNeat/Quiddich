@@ -121,7 +121,6 @@ namespace EntitiesLayer
             this.scoreDomicile = scoreDomicile;
             this.scoreVisiteur = scoreVisiteur;
             this.stade = stade;
-        
         }
 
         public string ToString()

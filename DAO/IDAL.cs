@@ -11,6 +11,7 @@ namespace DAO
         
         IList<Joueur> getJoueurs();
         IList<Equipe> getEquipes();
+        IList<Equipe> getEquipeNames();
         IList<Stade> getStades();
         IList<Match> getMatchs();
         IList<Coupe> getCoupes();
@@ -25,7 +26,8 @@ namespace DAO
         void deleteStade(Stade stade);
         void addMatch(Match match);
         void deleteMatch(Match match);
-        Utilisateur getUtilisateurByLogin(string login);
+        void updateMatch(Match m);
 
+        Utilisateur getUtilisateurByLogin(string login);
     }
 }

@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using EntitiesLayer;
 using System.Data.SqlClient;
 using System.Data;
-using EntitiesLayer;
-using DAO;
 namespace DAO
 {
     public class DALSQLServer : IDAL
@@ -16,7 +14,6 @@ namespace DAO
         public DALSQLServer(string connection) 
         {
             this.connection = connection;
-
         }
 
         private DataTable SelectElementByRequest(string request)
@@ -27,7 +24,6 @@ namespace DAO
                 SqlCommand commande = new SqlCommand(request, sqlconnection);
                 SqlDataAdapter dataadapter = new SqlDataAdapter(commande);
                 dataadapter.Fill(table);
-
             }
             return table;
         }
@@ -48,13 +44,25 @@ namespace DAO
             List<Joueur> joueurs = new List<Joueur>();
             DataTable table = SelectElementByRequest("SELECT * FROM Joueurs");
 
-           foreach(DataRow row in table.Rows)
-           {
-               joueurs.Add(getJoueurFromRow(row));
-           
-           }
-           return joueurs;
+            foreach (DataRow row in table.Rows)
+            {
+                joueurs.Add(getJoueurFromRow(row));
+            }
+            return joueurs;
         }
+
+        public IList<Joueur> getJoueursOfEquipe(int equipeId)
+        {
+            List<Joueur> joueurs = new List<Joueur>();
+            DataTable table = SelectElementByRequest("SELECT * FROM Joueurs WHERE EquipeID = " + equipeId);
+
+            foreach (DataRow row in table.Rows)
+            {
+                joueurs.Add(getJoueurFromRow(row));
+            }
+            return joueurs;
+        }
+
         private Joueur getJoueurFromRow(DataRow row)
         {
             PosteJoueur poste;
@@ -67,12 +75,9 @@ namespace DAO
                     break;
                 case 3 : poste = PosteJoueur.Poursuiveur; 
                         break;
-
-             
                 default :
                     poste = PosteJoueur.None;
                     break;
-
             }
             
             Joueur joueur = new Joueur(0, 0, poste, Convert.ToDateTime(row["DateNaissance"]),Convert.ToString(row["Nom"]), Convert.ToString(row["Prenom"]));
@@ -85,67 +90,69 @@ namespace DAO
         {
             List<Equipe> equipes = new List<Equipe>();
             DataTable table = SelectElementByRequest("SELECT * FROM Equipes");
-
             foreach (DataRow row in table.Rows)
             {
                 equipes.Add(getEquipeFromRow(row));
-
             }
+            return equipes;
+        }
 
-            
+        public IList<Equipe> getEquipeNames() {
+            List<Equipe> equipes = new List<Equipe>();
+            DataTable table = SelectElementByRequest("SELECT * FROM Equipes");
+            foreach (DataRow row in table.Rows)
+            {
+                Equipe equipe = new Equipe(Convert.ToString(row["Nom"]), Convert.ToString(row["Pays"]));
+                equipe.Id = Convert.ToInt32(row["ID"]);
+                equipes.Add(equipe);
+            }
             return equipes;
         }
         
         public Equipe getEquipeFromRow(DataRow row)
         {
-
             Equipe equipe = new Equipe(Convert.ToString(row["Nom"]), Convert.ToString(row["Pays"]));
             equipe.Id = Convert.ToInt32(row["ID"]);
 
             List<Joueur> joueurs = new List<Joueur>();
 
-            foreach(Joueur joueur in getJoueurs() )
+            foreach(Joueur joueur in getJoueursOfEquipe(equipe.Id) )
             {
-                if (joueur.EquipeID.Equals(equipe.Id))
                     joueurs.Add(joueur);
             }
             equipe.setJoueurs(joueurs);
             return equipe;
-        
         }
+        
         public IList<Coupe> getCoupes()
         {
             List<Coupe> coupes = new List<Coupe>();
             DataTable table = SelectElementByRequest("SELECT * FROM Coupes");
-
             foreach (DataRow row in table.Rows)
             {
                 coupes.Add(getCoupeFromRow(row));
-
             }
-            return coupes;
-           
+            return coupes;   
         }
         
         public Coupe getCoupeFromRow(DataRow row)
         {
-
-            Coupe coupe = new Coupe(Convert.ToInt32(row["Annee"]), "Coupe" + Convert.ToInt32(row["Annee"]));
+            Coupe coupe = new Coupe(Convert.ToInt32(row["Annee"]), Convert.ToString(row["Titre"]));
             coupe.Id = Convert.ToInt32(row["ID"]);
             return coupe;
-        
         }
 
         public IList<Match> getMatchesByid(int idCoupe)
         {
             List<Match> matches = new List<Match>();
-            foreach (Match match in getMatchs())
+            DataTable table = SelectElementByRequest("SELECT * FROM Matchs WHERE CoupeID = " + idCoupe);
+            foreach (DataRow row in table.Rows)
             {
-                if (match.CoupeId.Equals(idCoupe))
-                    matches.Add(match);
+                matches.Add(getMatcheFromRow(row));
             }
             return matches;
         }
+
         public IList<Stade> getStades()
         {
             List<Stade> stades = new List<Stade>();
@@ -154,15 +161,18 @@ namespace DAO
             foreach (DataRow row in table.Rows)
             {
                 stades.Add(getStadeFromRow(row));
-
             }
             return stades;
         }
 
         public Stade getStadeFromRow(DataRow row)
         {
-
-            Stade stade = new Stade(Convert.ToString(row["Adresse"]), Convert.ToString(row["Nom"]), Convert.ToInt32(row["NombrePlacesDisponibles"]), Convert.ToDouble(row["PourcentageCommision"]));
+            Stade stade = new Stade(
+                Convert.ToString(row["Adresse"]), 
+                Convert.ToString(row["Nom"]), 
+                Convert.ToInt32(row["NombrePlacesDisponibles"]), 
+                Convert.ToDouble(row["PourcentageCommision"])
+            );
             stade.Id = Convert.ToInt32(row["ID"]);
             return stade;
         
@@ -181,44 +191,54 @@ namespace DAO
         }
         public Match getMatcheFromRow(DataRow row)
         {
-
-            Match match = new Match(Convert.ToInt32(row["CoupeID"]), Convert.ToDateTime(row["Date"]), getEquipeByID(Convert.ToInt32(row["DomicileID"])), getEquipeByID(Convert.ToInt32(row["VisiteurID"])), 0, Convert.ToInt32(row["ScoreVisiteur"]), Convert.ToInt32(row["ScoreDomicile"]), getStadeByID(Convert.ToInt32(row["StadeID"])));
+            int dId = Convert.ToInt32(row["DomicileID"]);
+            Match match = new Match(
+                Convert.ToInt32(row["CoupeID"]), 
+                Convert.ToDateTime(row["Date"]), 
+                getEquipeByID(Convert.ToInt32(row["DomicileID"])), 
+                getEquipeByID(Convert.ToInt32(row["VisiteurID"])), 
+                0, 
+                Convert.ToInt32(row["ScoreVisiteur"]), 
+                Convert.ToInt32(row["ScoreDomicile"]), 
+                getStadeByID(Convert.ToInt32(row["StadeID"]))
+            );
             match.Id = Convert.ToInt32(row["ID"]);
             return match;
 
         }
+
         public Equipe getEquipeByID(int equipeID)
         {
-            foreach(Equipe equipe in getEquipes() )
-            {
-                if (equipe.Id.Equals(equipeID))
-                    return equipe;
-            }
-            return null;
+            DataTable dt = SelectElementByRequest("SELECT * FROM Equipes WHERE ID = " + equipeID);
+            if (dt.Rows.Count < 1)
+                return null;
+            Equipe equipe = new Equipe(Convert.ToString(dt.Rows[0]["Nom"]), Convert.ToString(dt.Rows[0]["Pays"]));
+            equipe.Id = equipeID;
+            return equipe;
         }
 
 
         public Stade getStadeByID(int stadeID)
         {
-            foreach(Stade stade in getStades() )
-            {
-                if (stade.Id.Equals(stadeID))
-                    return stade;
-            }
-            return null;
+            DataTable dt = SelectElementByRequest("SELECT * FROM Stades WHERE ID = " + stadeID);
+            if (dt.Rows.Count < 1)
+                return null;
+            DataRow row = dt.Rows[0];
+            Stade stade = new Stade(Convert.ToString(row["Adresse"]), Convert.ToString(row["Nom"]), Convert.ToInt32(row["NombrePlacesDisponibles"]), Convert.ToDouble(row["PourcentageCommision"]));
+            stade.Id = Convert.ToInt32(row["ID"]);
+            return stade;
         }
       
     
 
         public void addCoupe(Coupe coupe)
         {
-            ExecuteElementByRequest("INSERT INTO Coupes VALUES(" +  coupe.Year + ")");
+            ExecuteElementByRequest("INSERT INTO Coupes (Annee, Titre) VALUES(" + coupe.Year + ", '"+ coupe.Label +"')");
             
         }
         public void updateCoupe(Coupe coupe)
         {
-            ExecuteElementByRequest("UPDATE  Coupes SET Annee = " + coupe.Year + " WHERE ID = " + coupe.Id);
-      
+            ExecuteElementByRequest("UPDATE  Coupes SET Annee = " + coupe.Year + ", Titre = '" + coupe.Label + "' WHERE ID = " + coupe.Id);      
         }
 
         public void deleteCoupe(Coupe coupe)
@@ -229,12 +249,11 @@ namespace DAO
 
         public void addJoueur(Joueur joueur)
         {
-            //Colonne NO_IDENTITY
-
             int posteID = (int)joueur.Poste;
-
-            ExecuteElementByRequest("INSERT INTO Joueurs VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ",'capitaine')");
-
+            ExecuteElementByRequest("INSERT INTO Joueurs "
+                + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Captaine )"
+                +" VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ", 0)"
+            );
         }
 
         public void deleteJoueur(Joueur joueur)
@@ -244,8 +263,15 @@ namespace DAO
         }
         public void addMatch(Match match)
         {
-            ExecuteElementByRequest("INSERT INTO Matchs VALUES(" + match.CoupeId + "," + match.Stade.Id + "," + match.EquipeDomicile.Id + "," + match.EquipeVisiteur.Id + "," + match.ScoreDomicile + "," + match.ScoreVisiteur + ",'" + match.Date + "')");
-
+            ExecuteElementByRequest("INSERT INTO Matchs (CoupeID, StadeID, DomicileID, VisiteurID, ScoreDomicile, ScoreVisiteur, Date) VALUES(" 
+                + match.CoupeId 
+                + "," + match.Stade.Id 
+                + "," + match.EquipeDomicile.Id 
+                + "," + match.EquipeVisiteur.Id 
+                + "," + match.ScoreDomicile 
+                + "," + match.ScoreVisiteur 
+                + ",'" + match.Date.Date.ToString("yyyy-MM-dd HH:mm:ss") + "')"
+            );
         }
 
         public void deleteMatch(Match match)
@@ -253,35 +279,44 @@ namespace DAO
             ExecuteElementByRequest("DELETE FROM Matchs WHERE ID = " + match.Id);
 
         }
+        public void updateMatch(Match match)
+        {
+            ExecuteElementByRequest("UPDATE Matchs SET"
+                + " CoupeID = " + match.CoupeId
+                + ", StadeID = " + match.Stade.Id
+                + ", DomicileID = " + match.EquipeDomicile.Id
+                + ", VisiteurID = " + match.EquipeVisiteur.Id
+                + ", ScoreDomicile = " + match.ScoreDomicile
+                + ", ScoreVisiteur =" + match.ScoreVisiteur
+                + ", Date = '" + match.Date.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'"
+                + " WHERE ID = " + match.Id
+            );
+        }
         public void addStade(Stade stade)
         {
-            ExecuteElementByRequest("INSERT INTO Stades VALUES('" + stade.Nom + "','" + stade.Adresse + "'," + stade.Places + "," + stade.Pourcentage + ")");   
-       
+            ExecuteElementByRequest("INSERT INTO Stades "
+                + " (Nom, Adresse, NombrePlacesDisponibles, PourcentageCommision) "
+                + " VALUES('" + stade.Nom + "','" + stade.Adresse + "'," + stade.Places + "," + stade.Pourcentage + ")");
         }
 
         public void deleteStade(Stade stade)
         {
             ExecuteElementByRequest("DELETE FROM Stades WHERE ID = " + stade.Id);
-
         }
 
         public void addEquipe(Equipe equipe)
         {
-            ExecuteElementByRequest("INSERT INTO Equipes VALUES('" + equipe.Pays + "','" + equipe.Nom + "')");   
+            ExecuteElementByRequest("INSERT INTO Equipes (Pays, Nom) VALUES('" + equipe.Pays + "','" + equipe.Nom + "')");
         }
 
         public void deleteEquipe(Equipe equipe)
         {
             ExecuteElementByRequest("DELETE FROM Equipes WHERE ID = " + equipe.Id);
-
         }
 
         public Utilisateur getUtilisateurByLogin(string login)
         {
             throw new NotImplementedException();
-        }
-
-
-      
+        }      
     }
 }

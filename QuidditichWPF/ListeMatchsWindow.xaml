@@ -19,7 +19,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Stade :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name= "stades"   SelectedItem="{Binding Stade}"/>
+                <ComboBox Height="20" Margin="0,8,0,0" VerticalAlignment="Top" Width="245" Name= "stades"   SelectedItem="{Binding Stade}" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Equipe Visiteur :" Height="37" VerticalAlignment="Top" Width="121"/>
