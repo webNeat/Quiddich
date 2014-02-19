@@ -23,6 +23,8 @@ namespace DAO
         void deleteEquipe(Equipe equipe);
         void addStade(Stade stade);
         void deleteStade(Stade stade);
+        void addMatch(Match match);
+        void deleteMatch(Match match);
         Utilisateur getUtilisateurByLogin(string login);
 
     }

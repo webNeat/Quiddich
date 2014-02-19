@@ -119,5 +119,16 @@ namespace DAO
         {
             return dal.getUtilisateurByLogin(login);
         }
+
+
+        public void addMatch(Match match)
+        {
+            dal.addMatch(match);
+        }
+
+        public void deleteMatch(Match match)
+        {
+            dal.deleteMatch(match);
+        }
     }
 }

@@ -65,8 +65,8 @@ namespace QuidditichWPF
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             cm.deleteJoueur((Joueur)joueurs.SelectedItem);
-       //     listequipe.ItemsSource = cm.allEquipes();
-        //    listequipe.Items.Refresh();
+       //   listequipe.ItemsSource = cm.allEquipes();
+        //  listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
         }

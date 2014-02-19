@@ -20,7 +20,9 @@ namespace QuidditichWPF
     /// </summary>
     public partial class ListeMatchsWindow : Window
     {
+
         CoupeManager cm;
+        Coupe coupe;
         public ListeMatchsWindow()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace QuidditichWPF
             stades.ItemsSource = cm.allStades();
             equipesV.ItemsSource = cm.allEquipes();
             equipesD.ItemsSource = cm.allEquipes();
+
+      
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -40,7 +44,7 @@ namespace QuidditichWPF
 
         private void coupes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Coupe coupe = (Coupe)coupes.SelectedItem;
+            coupe = (Coupe)coupes.SelectedItem;
             IList<Match> matchsR = cm.allMatchofCoupe(coupe.Id);
             matchs.ItemsSource = matchsR;
         }
@@ -49,5 +53,31 @@ namespace QuidditichWPF
         {
             DataContext = matchs.SelectedItem;
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //delete
+             cm.deleteMatch((Match)matchs.SelectedItem);
+             IList<Match> matchsR = cm.allMatchofCoupe(coupe.Id);
+             matchs.ItemsSource = matchsR;
+             matchs.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //update
+            matchs.Items.Refresh();
+            
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Coupe coupe = (Coupe)coupes.SelectedItem;
+            cm.addMatch(coupe.Id ,(DateTime) date.SelectedDate,Convert.ToDouble(prix.Text), (Stade)stades.SelectedItem,(Equipe) equipesD.SelectedItem,(Equipe) equipesV.SelectedItem,Convert.ToInt32(scoreDomicile.Text),Convert.ToInt32(scoreVisiteur.Text));
+            IList<Match> matchsR = cm.allMatchofCoupe(coupe.Id);
+            matchs.ItemsSource = matchsR;
+            matchs.Items.Refresh();
+        }
+
+      
     }
 }
