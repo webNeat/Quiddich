@@ -317,6 +317,22 @@ namespace DAO
         public Utilisateur getUtilisateurByLogin(string login)
         {
             throw new NotImplementedException();
-        }      
+        }
+
+
+        public void updateJoueur(Joueur joueur)
+        {
+               
+        }
+
+        public void updateEquipe(Equipe equipe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateStade(Stade stade)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

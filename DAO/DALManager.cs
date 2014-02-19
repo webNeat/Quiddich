@@ -141,5 +141,24 @@ namespace DAO
             dataAccessLayer.updateMatch(m);
         }
 
+        public void updateCoupe(Coupe coupe)
+        {
+            dal.updateCoupe(coupe);
+        }
+
+        public void updateJoueur(Joueur joueur)
+        {
+            dal.updateJoueur(joueur);
+        }
+
+        public void updateEquipe(Equipe equipe)
+        {
+            dal.updateEquipe(equipe);
+        }
+
+        public void updateStade(Stade stade)
+        {
+            dal.updateStade(stade);
+        }
     }
 }
