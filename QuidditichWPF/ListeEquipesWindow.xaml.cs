@@ -52,6 +52,8 @@ namespace QuidditichWPF
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            cm.updateEquipe((Equipe)ListeEquipes.SelectedItem);
+            ListeEquipes.ItemsSource = cm.allEquipes();
             ListeEquipes.Items.Refresh();
         }
 
@@ -60,6 +62,13 @@ namespace QuidditichWPF
             cm.deleteEquipe((Equipe)ListeEquipes.SelectedItem);
             ListeEquipes.ItemsSource = cm.allEquipes();
             ListeEquipes.Items.Refresh();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MainWindow auto = new MainWindow();
+            auto.Show();
+            this.Close();
         }
     }
 }

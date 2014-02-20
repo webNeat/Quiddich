@@ -40,6 +40,8 @@ namespace QuidditichWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            cm.updateStade((Stade)ListeStades.SelectedItem);
+            ListeStades.ItemsSource = cm.allStades();
             ListeStades.Items.Refresh();
         }
 
@@ -49,7 +51,7 @@ namespace QuidditichWPF
             double percent;
             Int32.TryParse(places.Text, out nbrePlaces);
             Double.TryParse(pourcentage.Text, out percent);
-            cm.addStade(adresse.Text,  nom.Text, nbrePlaces, percent);
+            cm.addStade(nom.Text, adresse.Text, nbrePlaces, percent);
             ListeStades.ItemsSource = cm.allStades();
             ListeStades.Items.Refresh();
         }
@@ -59,6 +61,14 @@ namespace QuidditichWPF
             cm.deleteStade((Stade)ListeStades.SelectedItem);
             ListeStades.ItemsSource = cm.allStades();
             ListeStades.Items.Refresh();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow auto = new MainWindow();
+            auto.Show();
+            this.Close();
         }
     }
 }

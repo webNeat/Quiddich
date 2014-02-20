@@ -36,7 +36,7 @@ namespace DAO
         void addMatch(Match match);
         void deleteMatch(Match match);
         void updateMatch(Match m);
-
-        Utilisateur getUtilisateurByLogin(string login);
+        void addUtilisateur(Utilisateur user);
+        Utilisateur getUtilisateurByLogin(string login, string password);
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EntitiesLayer;
 using System.Data.SqlClient;
 using System.Data;
+using System.Security.Cryptography;
 namespace DAO
 {
     public class DALSQLServer : IDAL
@@ -177,6 +178,7 @@ namespace DAO
             return stade;
         
         }
+        
         public IList<Match> getMatchs()
         {
             List<Match> matches = new List<Match>();
@@ -189,6 +191,7 @@ namespace DAO
             }
             return matches;
         }
+        
         public Match getMatcheFromRow(DataRow row)
         {
             int dId = Convert.ToInt32(row["DomicileID"]);
@@ -229,22 +232,21 @@ namespace DAO
             return stade;
         }
       
-    
-
         public void addCoupe(Coupe coupe)
         {
             ExecuteElementByRequest("INSERT INTO Coupes (Annee, Titre) VALUES(" + coupe.Year + ", '"+ coupe.Label +"')");
             
-        }
-        public void updateCoupe(Coupe coupe)
-        {
-            ExecuteElementByRequest("UPDATE  Coupes SET Annee = " + coupe.Year + ", Titre = '" + coupe.Label + "' WHERE ID = " + coupe.Id);      
         }
 
         public void deleteCoupe(Coupe coupe)
         {
             ExecuteElementByRequest("DELETE FROM Coupes WHERE ID = " + coupe.Id);
       
+        }
+
+        public void updateCoupe(Coupe coupe)
+        {
+            ExecuteElementByRequest("UPDATE  Coupes SET Annee = " + coupe.Year + ", Titre = '" + coupe.Label + "' WHERE ID = " + coupe.Id);
         }
 
         public void addJoueur(Joueur joueur)
@@ -261,6 +263,21 @@ namespace DAO
             ExecuteElementByRequest("DELETE FROM Joueurs WHERE ID = " + joueur.Id);
 
         }
+
+        public void updateJoueur(Joueur joueur)
+        {
+            int postID = (int)joueur.Poste; 
+            ExecuteElementByRequest("UPDATE Joueurs SET"
+               + " Prenom = '" + joueur.Prenom + "'"
+               + ", Nom = '" + joueur.Nom + "'"
+               + ", DateNaissance = '" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'"
+               + ", EquipeID = " + joueur.EquipeID
+               + ", PosteID = " + postID
+               + ", Captaine = 0 "  
+                + " WHERE ID = " + joueur.Id
+           );
+        }
+
         public void addMatch(Match match)
         {
             ExecuteElementByRequest("INSERT INTO Matchs (CoupeID, StadeID, DomicileID, VisiteurID, ScoreDomicile, ScoreVisiteur, Date) VALUES(" 
@@ -303,6 +320,17 @@ namespace DAO
         {
             ExecuteElementByRequest("DELETE FROM Stades WHERE ID = " + stade.Id);
         }
+        
+        public void updateStade(Stade stade)
+        {
+            ExecuteElementByRequest("UPDATE Stades SET"
+               + " Nom = '" + stade.Nom + "'"
+               + ", Adresse = '" + stade.Adresse+ "'"
+               + ", NombrePlacesDisponibles = " + stade.Places
+               + ", PourcentageCommision = " + stade.Pourcentage
+                + " WHERE ID = " + stade.Id
+           );
+        }
 
         public void addEquipe(Equipe equipe)
         {
@@ -314,25 +342,46 @@ namespace DAO
             ExecuteElementByRequest("DELETE FROM Equipes WHERE ID = " + equipe.Id);
         }
 
-        public Utilisateur getUtilisateurByLogin(string login)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void updateJoueur(Joueur joueur)
-        {
-               
-        }
-
         public void updateEquipe(Equipe equipe)
         {
-            throw new NotImplementedException();
+            ExecuteElementByRequest("UPDATE Equipes SET"
+               + " Pays = '" + equipe.Pays + "'"
+               + ", Nom = '" + equipe.Nom + "'"
+               + " WHERE ID = " + equipe.Id
+           );
         }
 
-        public void updateStade(Stade stade)
+        private string HashPassword(string password)
         {
-            throw new NotImplementedException();
+            SHA1 sha1 = SHA1.Create();
+            byte[] hashPassword = sha1.ComputeHash(Encoding.Default.GetBytes(password));
+            StringBuilder value = new StringBuilder();
+            for (int i = 0; i < hashPassword.Length; i++ )
+            {
+                value.Append(hashPassword[i].ToString());
+
+            }
+            return value.ToString();
+        }
+
+        public void addUtilisateur(Utilisateur utilisateur)
+        {
+            string login = utilisateur.getLogin();
+
+           ExecuteElementByRequest("INSERT INTO Utilisateur (Login, Password) VALUES('"
+                + login + "','" 
+                + HashPassword(utilisateur.getPassword())
+                + "')");
+        }
+        public Utilisateur getUtilisateurByLogin(string login, string password)
+        {
+            DataTable dt = SelectElementByRequest("SELECT * FROM Utilisateur WHERE Password = '" + HashPassword(password) + "' AND Login = '" + login + "'" );
+
+            if (dt.Rows.Count < 1)
+                return null;
+            DataRow row = dt.Rows[0];
+            Utilisateur user = new Utilisateur("", "", Convert.ToString(row["Login"]), Convert.ToString(row["Password"])); 
+            return user;
         }
     }
 }
