@@ -24,6 +24,7 @@ namespace QuidditichWPF
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
+            //new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "C:/Users/webNeat/Documents/GitHub/Quiddich/rugby.png")));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

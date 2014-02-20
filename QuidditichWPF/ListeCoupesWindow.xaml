@@ -14,10 +14,12 @@
                     <Label Content="Libellé :" HorizontalAlignment="Left"  Margin="10,0,0,0" Width="56"/>
                     <TextBox  TextWrapping="Wrap" Name="libelletxt" Text="{Binding Label}" VerticalAlignment="Top" Width="219" Height="25"/>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="right" Height="39" Width="227" Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="right" Height="39" Width="293" Orientation="Horizontal">
                     <Button Content="Supprimer" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_3"/>
                     <Button Content="Modifier" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_1"/>
                     <Button Content="Ajouter" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_2"/>
+                    <Button Content="Retour" Height="23" Margin="0,6,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_4"/>
+
                 </StackPanel>
             </StackPanel>
         </StackPanel>

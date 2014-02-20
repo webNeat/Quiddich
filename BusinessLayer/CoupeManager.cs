@@ -106,7 +106,19 @@ namespace BusinessLayer
             data.updateMatch(m);
         }
 
+        public void updateJoueur(Joueur joueur)
+        {
+            data.updateJoueur(joueur);
+        }
 
+        public void updateStade(Stade stade)
+        {
+            data.updateStade(stade);
+        }
+        public void updateEquipe(Equipe equipe)
+        {
+            data.updateEquipe(equipe);
+        }
 
         public Utilisateur Login(string login, string password)
         {
