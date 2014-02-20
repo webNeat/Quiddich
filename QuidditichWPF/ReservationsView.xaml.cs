@@ -24,6 +24,13 @@ namespace QuidditichWPF
         public ReservationsView()
         {
             InitializeComponent();
+           
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow auto = new MainWindow();
+            auto.Show();
         }
     }
 }

@@ -15,7 +15,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Prix :" Height="37" VerticalAlignment="Top" Width="121"/>
-                <TextBox Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Name="prix" Text="{Binding Prix}"/>
+                <TextBox Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Name="prix" Text="{Binding Prix}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="37" Width="373" Orientation="Horizontal">
                 <Label Content="Stade :" Height="37" VerticalAlignment="Top" Width="121"/>

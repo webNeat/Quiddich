@@ -9,11 +9,13 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0">
             <ListBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="170" Margin="5" Name="ListeReservations" ItemsSource="{Binding Reservations}" SelectedItem="{Binding SelectedItem}"/>
-            <StackPanel HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="510">
-                <local:CtrlReservation x:Name="Reservation" DataContext="{Binding SelectedItem}"/>
-                <StackPanel HorizontalAlignment="Right" Height="49" Orientation="Horizontal" Margin="5">
+            <StackPanel HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="600">
+                <local:CtrlReservation x:Name="Reservation" DataContext="{Binding SelectedItem}" Margin="0,0,45,0"/>
+                <StackPanel HorizontalAlignment="Right" Height="49" Orientation="Horizontal" Margin="0,5,270,5" Width="198" RenderTransformOrigin="0.5,0.5">
                     <Button Content="Supprimer" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="81" Command="{Binding DeleteCommand}" />
                     <Button Content="Ajouter" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="56" Command="{Binding AddCommand}" />
+                    <Button Content="Retour" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="56" Click="Button_Click_1" />
+
                 </StackPanel>
             </StackPanel>
         </StackPanel>

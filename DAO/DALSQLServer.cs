@@ -311,8 +311,8 @@ namespace DAO
         {
             int posteID = (int)joueur.Poste;
             ExecuteElementByRequest("INSERT INTO Joueurs "
-                + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Captaine )"
-                +" VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ", 0)"
+                + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Capitaine )"
+                + " VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'," + joueur.EquipeID + "," + posteID + ", 0)"
             );
         }
 
@@ -331,7 +331,7 @@ namespace DAO
                + ", DateNaissance = '" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                + ", EquipeID = " + joueur.EquipeID
                + ", PosteID = " + postID
-               + ", Captaine = 0 "  
+               + ", Capitaine = 0 "  
                 + " WHERE ID = " + joueur.Id
            );
         }

@@ -4,36 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="360" d:DesignWidth="510">
-    <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="350" Margin="5" VerticalAlignment="Top" Width="500">
+             d:DesignHeight="360" d:DesignWidth="540">
+    <Grid Margin="0,0,-97,0">
+        <StackPanel HorizontalAlignment="Left" Height="350" Margin="5" VerticalAlignment="Top" Width="600">
             <StackPanel HorizontalAlignment="Left" Height="49" Width="500" Orientation="Horizontal">
                 <Label Content="Coupe : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <ComboBox Name="coupes" Height="27" SelectedItem="{Binding MyCoupe}"  Margin="0,12,0,0" VerticalAlignment="Top" Width="360" SelectionChanged="coupes_SelectionChanged"/>
+                <ComboBox Name="coupes" Height="27" SelectedItem="{Binding MyCoupe}"  Margin="0,12,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="coupes_SelectionChanged"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="500" Orientation="Horizontal">
                 <Label Content="Match : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <ComboBox Name="matches" Height="27" SelectedItem="{Binding MyMatch}"  Margin="0,12,0,0" VerticalAlignment="Top" Width="360"/>
+                <ComboBox x:Name="matches" Height="27" SelectedItem="{Binding MyMatch}"  Margin="0,12,0,0" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="515" Orientation="Horizontal">
                 <Label Content="Nom : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <TextBox Height="29" Name="nom" Text ="{Binding Nom}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+                <TextBox Height="29" Name="nom" Text ="{Binding Nom}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="515" Orientation="Horizontal">
                 <Label Content="Prénom : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <TextBox Height="29" Name="prenom" Text ="{Binding Prenom}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+                <TextBox Height="29" Name="prenom" Text ="{Binding Prenom}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="515" Orientation="Horizontal">
                 <Label Content="Adresse : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <TextBox Height="29" Name="adresse" Text ="{Binding Adresse}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+                <TextBox Height="29" Name="adresse" Text ="{Binding Adresse}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="515" Orientation="Horizontal">
                 <Label Content="Places : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <TextBox Height="29" Name="places" Text ="{Binding Places}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+                <TextBox Height="29" Name="places" Text ="{Binding Places}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="49" Width="515" Orientation="Horizontal">
                 <Label Content="Prix : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="140"/>
-                <Label Height="29" Name="prix" Margin="0,10,0,0" Content="{Binding Prix}" VerticalAlignment="Top" Width="360"/>
+                <Label Height="29" Name="prix" Margin="0,10,0,0" Content="{Binding Prix}" VerticalAlignment="Top" Width="180"/>
             </StackPanel>
         </StackPanel>
     </Grid>

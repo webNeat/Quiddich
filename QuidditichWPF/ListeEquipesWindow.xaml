@@ -5,19 +5,19 @@
     <Grid>
         <DockPanel x:Name="Wrapper"  VerticalAlignment="Stretch" LastChildFill="False" HorizontalAlignment="Left" Width="392">
             <ListBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="150" Name="ListeEquipes" SelectionChanged="ListeEquipes_SelectionChanged"/>
-            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="242" Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2,6,2,6">
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="260" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Height="35" Margin="12,6,10,6">
                     <Label Content="Nom : " Margin="5 0 5 0" Width="60" />
-                    <TextBox Text="{Binding Nom}" Name="nom" Margin="5 0 5 0" Width="138" />
+                    <TextBox Text="{Binding Nom}" Name="nom" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="35" Width="230" Margin="2 6 2 6">
+                <StackPanel Orientation="Horizontal" Height="35" Margin="12,6,10,6">
                     <Label Content="Pays : " Margin="5 0 5 0" Width="60" Height="35" VerticalAlignment="Bottom" />
-                    <TextBox Text="{Binding Pays}" Name="pays" Margin="5 0 5 0" Width="138" />
+                    <TextBox Text="{Binding Pays}" Name="pays" Margin="5 0 5 0" Width="150" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30" Width="233" Margin="0,6,2,6">
-                    <Button Content="Ajouter" Width="50" Margin="5 0 0 0" Click="Button_Click_1" />
-                    <Button Content="Modifier" Width="50" Margin="5 0 0 0" Click="Button_Click_2" Height="30" VerticalAlignment="Bottom" />
-                    <Button Content="Supprimer" Width="50" Margin="5 0 0 0" Click="Button_Click_3" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30" Width="258" Margin="0,6,2,6">
+                    <Button Content="Ajouter" Width="47" Margin="5 0 0 0" Click="Button_Click_1" />
+                    <Button Content="Modifier" Width="54" Margin="5 0 0 0" Click="Button_Click_2" Height="30" VerticalAlignment="Bottom" />
+                    <Button Content="Supprimer" Width="65" Margin="5 0 0 0" Click="Button_Click_3" />
                     <Button Content="Retour" Width="50" Margin="5 0 0 0" Click="Button_Click_4" />
 
                 </StackPanel>

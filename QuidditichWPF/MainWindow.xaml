@@ -5,7 +5,7 @@
     <Window.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
-                <BitmapImage UriSource="C:/Users/webNeat/Documents/GitHub/Quiddich/rugby.png"/>
+                <BitmapImage UriSource="C:/Users/webNeat/Documents/GitHub/Quiddich/ri.png"/>
             </ImageBrush.ImageSource>
         </ImageBrush>
     </Window.Background>
@@ -13,9 +13,9 @@
         <Button Content="Gestion des coupes" HorizontalAlignment="Left" Height="25" Margin="54,32,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1"/>
         <Button Content="Gestion des équipes " HorizontalAlignment="Left" Height="25" Margin="339,32,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2"/>
         <Button Content="Gestion des joueurs" HorizontalAlignment="Left" Height="25" Margin="54,139,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_3"/>
-        <Button Content="gestion des stades" HorizontalAlignment="Left" Height="25" Margin="339,139,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_4"/>
+        <Button Content="Gestion des stades" HorizontalAlignment="Left" Height="25" Margin="339,139,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_4"/>
         <Button Content="Gestion des matchs" HorizontalAlignment="Left" Height="25" Margin="54,238,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_5"/>
-        <Button Content="Gestion des résérvations" HorizontalAlignment="Left" Height="25" Margin="339,238,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_6"/>
+        <Button Content="Gestion résérvations" HorizontalAlignment="Left" Height="25" Margin="339,238,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_6"/>
 
     </Grid>
 </Window>
