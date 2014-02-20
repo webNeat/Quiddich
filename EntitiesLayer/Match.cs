@@ -123,13 +123,9 @@ namespace EntitiesLayer
             this.stade = stade;
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return "Match  | coupeId : " + coupeId + " | date :" + date + "Equipe Visiteur : " + equipeVisiteur.Nom + "Equipe Domicile : " + equipeDomicile.Nom + " prix : " + prix + "score D :" + scoreDomicile + " score v : " + scoreVisiteur + " stade : " +  stade.Nom;
+            return equipeDomicile.Nom + " VS " + equipeVisiteur.Nom ;
         }
-
-      
-       
-       
     }
 }

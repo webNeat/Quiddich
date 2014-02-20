@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BusinessLayer;
+using EntitiesLayer;
 
 namespace QuidditichWPF
 {
@@ -22,7 +24,18 @@ namespace QuidditichWPF
     {
         public CtrlReservation()
         {
+            CoupeManager cm = new CoupeManager();
             InitializeComponent();
+            coupes.ItemsSource = cm.allCoupes();
         }
+
+        private void coupes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Coupe selectedCoupe = (Coupe)coupes.SelectedItem;
+            CoupeManager cm = new CoupeManager();
+            matches.ItemsSource = cm.allMatchofCoupe(selectedCoupe.Id);
+        }
+
+
     }
 }

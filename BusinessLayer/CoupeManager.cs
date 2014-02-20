@@ -33,12 +33,22 @@ namespace BusinessLayer
             return data.getJoueurs();
         }
 
+        public IList<Reservation> allReservations()
+        {
+            return data.getReservations();
+        }
+
         public IList<Coupe> allCoupes()
         {
             /*list<coupe> query = (list<coupe>)
                 from c in coupes
                 select c;*/
             return data.getCoupes();
+        }
+
+        public Coupe getCoupeById(int id)
+        {
+            return data.getCoupeById(id);
         }
 
         public IList<Match> allMatchofCoupe(int idcoupe)
