@@ -312,7 +312,7 @@ namespace DAO
             int posteID = (int)joueur.Poste;
             ExecuteElementByRequest("INSERT INTO Joueurs "
                 + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Capitaine )"
-                + " VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'," + joueur.EquipeID + "," + posteID + ", 0)"
+                + " VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd") + "'," + joueur.EquipeID + "," + posteID + ", 0)"
             );
         }
 

@@ -7,8 +7,8 @@
         <Label Content="Password :" HorizontalAlignment="Left" Height="24" Margin="10,154,0,0" VerticalAlignment="Top" Width="166"/>
         <Label Content="Login :" HorizontalAlignment="Left" Height="31" Margin="10,86,0,0" VerticalAlignment="Top" Width="68"/>
         <Button Content="se connecter" HorizontalAlignment="Left" Height="22" Margin="150,229,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_1"/>
-        <PasswordBox HorizontalAlignment="Left" Name="password" Margin="114,154,0,0" VerticalAlignment="Top" Width="116" Height="24"/>
-        <TextBox HorizontalAlignment="Left" Name="login" Height="31" Margin="114,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox HorizontalAlignment="Left" Name="password" Margin="114,154,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Name="login" Height="24" Margin="114,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
