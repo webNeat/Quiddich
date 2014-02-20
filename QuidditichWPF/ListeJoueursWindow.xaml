@@ -29,10 +29,12 @@
                 <Label Content="Sélections : " Height="29" Margin="0,10,0,0" VerticalAlignment="Top" Width="146"/>
                 <TextBox Height="29" Name="selections" Text ="{Binding NbSelections }" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="49" Width="202" Orientation="Horizontal" Margin="313,0,0,0">
+            <StackPanel HorizontalAlignment="Left" Height="49" Width="257" Orientation="Horizontal" Margin="258,0,0,0">
                 <Button Content="Supprimer" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="81" Click="Button_Click_3"/>
                 <Button Content="Modifier" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click_2"/>
                 <Button Content="Ajouter" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="56" Click="Button_Click_1"/>
+                <Button Content="Retour" Height="28" Margin="0,11,0,0" VerticalAlignment="Top" Width="56" Click="Button_Click_4"/>
+
             </StackPanel>
         </StackPanel>
     </Grid>

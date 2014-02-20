@@ -51,24 +51,30 @@ namespace QuidditichWPF
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             cm.addJoueur(nom.Text, prenom.Text, Convert.ToInt32(score.Text) , (PosteJoueur) cbpostes.SelectedItem, Convert.ToInt32(selections.Text));
-            //listequipe.ItemsSource = cm.allEquipes();
-            //listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //update
+            cm.updateJoueur((Joueur)joueurs.SelectedItem);
+            joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             cm.deleteJoueur((Joueur)joueurs.SelectedItem);
-       //   listequipe.ItemsSource = cm.allEquipes();
-        //  listequipe.Items.Refresh();
             joueurs.ItemsSource = ((Equipe)listequipe.SelectedItem).getJoueurs();
             joueurs.Items.Refresh();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MainWindow auto = new MainWindow();
+            auto.Show();
+            this.Close();
         }
     }
 }

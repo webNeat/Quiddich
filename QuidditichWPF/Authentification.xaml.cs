@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BusinessLayer;
+using EntitiesLayer;
 namespace QuidditichWPF
 {
     /// <summary>
@@ -28,13 +29,19 @@ namespace QuidditichWPF
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             CoupeManager cm = new CoupeManager();
-            //cm.Login(login.Text.ToLower(), password.Password) != null
-            if (true)
+
+           //cm.addUtilisateur(new Utilisateur("", "", login.Text.ToLower(), password.Password));
+
+            if (cm.Login(login.Text.ToLower(), password.Password) != null)
             {
-                Console.WriteLine("Testt bien");
+
                 MainWindow auto = new MainWindow();
                 auto.Show();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login ou Mot de passe invalide");
             }
         }
 

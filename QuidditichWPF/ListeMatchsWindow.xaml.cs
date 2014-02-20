@@ -75,6 +75,14 @@ namespace QuidditichWPF
             matchs.ItemsSource = matchsR;
             matchs.Items.Refresh();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow auto = new MainWindow();
+            auto.Show();
+            this.Close();
+        }
       
     }
 }

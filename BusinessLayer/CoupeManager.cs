@@ -116,17 +116,32 @@ namespace BusinessLayer
             data.updateMatch(m);
         }
 
+        public void updateJoueur(Joueur joueur)
+        {
+            data.updateJoueur(joueur);
+        }
 
+        public void updateStade(Stade stade)
+        {
+            data.updateStade(stade);
+        }
+        public void updateEquipe(Equipe equipe)
+        {
+            data.updateEquipe(equipe);
+        }
 
         public Utilisateur Login(string login, string password)
         {
-            Utilisateur user = data.getUtilisateurByLogin(login);
+            Utilisateur user = data.getUtilisateurByLogin(login, password);
             if (user != null)
-                if (user.getPassword().Equals(password))
-                    return user;
+                //if (user.getPassword().Equals(password))
+                return user;
             return null;
         }
-
+        public void addUtilisateur(Utilisateur user)
+        {
+            data.addUtilisateur(user);
+        }
 
         /*
          public static List<string> allCoupes(){
@@ -178,9 +193,6 @@ namespace BusinessLayer
          return query;
             
      } */
-
-
-
 
     }
 }

@@ -42,8 +42,6 @@ namespace DAO
         
         }
 
-
-
         public IList<Joueur> getJoueurs()
         {
             return dal.getJoueurs();
@@ -129,12 +127,15 @@ namespace DAO
             dal.deleteStade(stade);
         }
 
-
-        public Utilisateur getUtilisateurByLogin(string login)
+        public void addUtilisateur(Utilisateur user)
         {
-            return dal.getUtilisateurByLogin(login);
+            dal.addUtilisateur(user);
         }
 
+        public Utilisateur getUtilisateurByLogin(string login, string password)
+        {
+            return dal.getUtilisateurByLogin(login, password);
+        }
 
         public void addMatch(Match match)
         {
@@ -170,5 +171,6 @@ namespace DAO
         {
             dal.updateStade(stade);
         }
+      
     }
 }
