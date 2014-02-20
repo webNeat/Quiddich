@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EntitiesLayer;
 using System.Data.SqlClient;
 using System.Data;
+using System.Security.Cryptography;
 namespace DAO
 {
     public class DALSQLServer : IDAL
@@ -350,14 +351,37 @@ namespace DAO
            );
         }
 
-        public Utilisateur getUtilisateurByLogin(string login)
+        private string HashPassword(string password)
         {
-            DataTable dt = SelectElementByRequest("SELECT * FROM Utilisateur WHERE Login = " + login);
+            SHA1 sha1 = SHA1.Create();
+            byte[] hashPassword = sha1.ComputeHash(Encoding.Default.GetBytes(password));
+            StringBuilder value = new StringBuilder();
+            for (int i = 0; i < hashPassword.Length; i++ )
+            {
+                value.Append(hashPassword[i].ToString());
+
+            }
+            return value.ToString();
+        }
+
+        public void addUtilisateur(Utilisateur utilisateur)
+        {
+            string login = utilisateur.getLogin();
+
+           ExecuteElementByRequest("INSERT INTO Utilisateur (Login, Password) VALUES('"
+                + login + "','" 
+                + HashPassword(utilisateur.getPassword())
+                + "')");
+        }
+        public Utilisateur getUtilisateurByLogin(string login, string password)
+        {
+            DataTable dt = SelectElementByRequest("SELECT * FROM Utilisateur WHERE Password = '" + HashPassword(password) + "' AND Login = '" + login + "'" );
+
             if (dt.Rows.Count < 1)
                 return null;
             DataRow row = dt.Rows[0];
-            Utilisateur user = new Utilisateur(Convert.ToString(row["Nom"]),Convert.ToString(row["Prenom"]), Convert.ToString(row["Login"]),Convert.ToString(row["Password"])); 
-           return user;
+            Utilisateur user = new Utilisateur("", "", Convert.ToString(row["Login"]), Convert.ToString(row["Password"])); 
+            return user;
         }
     }
 }

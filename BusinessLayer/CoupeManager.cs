@@ -122,13 +122,16 @@ namespace BusinessLayer
 
         public Utilisateur Login(string login, string password)
         {
-            Utilisateur user = data.getUtilisateurByLogin(login);
+            Utilisateur user = data.getUtilisateurByLogin(login, password);
             if (user != null)
-                if (user.getPassword().Equals(password))
-                    return user;
+                //if (user.getPassword().Equals(password))
+                return user;
             return null;
         }
-
+        public void addUtilisateur(Utilisateur user)
+        {
+            data.addUtilisateur(user);
+        }
 
         /*
          public static List<string> allCoupes(){
