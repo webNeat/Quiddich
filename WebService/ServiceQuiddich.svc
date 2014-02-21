@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebService.ServiceQuiddich" CodeBehind="ServiceQuiddich.svc.cs" %>

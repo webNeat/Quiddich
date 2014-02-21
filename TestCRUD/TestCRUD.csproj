@@ -58,6 +58,10 @@
       <Project>{f5d8e35a-1d75-4b85-bd32-cc8e514b98c8}</Project>
       <Name>DAO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{bc3c9c6f-aa30-4c20-93e8-47d6a1241a8f}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
