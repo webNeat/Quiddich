@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using BusinessLayer;
+using EntitiesLayer;
 
 namespace WebService
 {
@@ -11,12 +13,17 @@ namespace WebService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez ServiceQuiddich.svc ou ServiceQuiddich.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class ServiceQuiddich : IServiceQuiddich
     {
-        public void DoWork()
+        private CoupeManager cm = new CoupeManager();
+        
+        public IList<CoupeWS> GetAllStade()
         {
-        }
-        public IList<CoupeWS> GetAllCoupes()
-        {
-            return null;
+            List<CoupeWS> result = new List<CoupeWS>();
+            IList<Coupe> list = cm.allCoupes();
+            foreach (Coupe coupe in list)
+            {
+                result.Add(new CoupeWS(coupe));
+            }
+            return result;
         }
     }
 }

@@ -13,5 +13,14 @@ namespace WebService
     {
         [OperationContract]
         IList<CoupeWS> GetAllCoupes();
+        [OperationContract]
+        IList<CoupeWS> GetAllEquipes();
+        [OperationContract]
+        IList<CoupeWS> GetJoueursOfEquipe(int id);
+        [OperationContract]
+        IList<CoupeWS> GetAllStade();
+
+
+
     }
 }

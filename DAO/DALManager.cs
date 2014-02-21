@@ -22,7 +22,8 @@ namespace DAO
         }
         private DALManager(DALProvider provider) 
         {
-            string connexion = @"Data Source=jwdaec5gna.database.windows.net;Initial Catalog=QuidditchWorldCup;Integrated Security=False;User ID=QuidditchWorldCups@jwdaec5gna;Password=&aqwXSZ2;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+            // string connexion = @"Data Source=jwdaec5gna.database.windows.net;Initial Catalog=QuidditchWorldCup;Integrated Security=False;User ID=QuidditchWorldCups@jwdaec5gna;Password=&aqwXSZ2;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+            string connexion = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\webNeat\Documents\GitHub\Quiddich\db.mdf;Integrated Security=True;Connect Timeout=30";
             switch(provider)
                {
                    case DALProvider.ORACLE :
