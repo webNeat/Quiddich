@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntitiesLayer;
+using System.Runtime.Serialization;
 
 namespace WebService
 {
+    [DataContract]
     public class MatchWS : EntityObjectWS
     {
         public int CoupeId
@@ -82,9 +84,9 @@ namespace WebService
             this.EquipeDomicile = new EquipeWS(match.EquipeDomicile);
             this.EquipeVisiteur = new EquipeWS(match.EquipeVisiteur);
             this.Prix = match.Prix;
-           /*this.scoreDomicile = scoreDomicile;
-            this.scoreVisiteur = scoreVisiteur;
-            this.StadeWS = StadeWS;*/
+            this.scoreDomicile = match.ScoreDomicile;
+            this.scoreVisiteur = match.ScoreVisiteur;
+            this.Stade = new StadeWS(match.Stade);
         }
 
     }

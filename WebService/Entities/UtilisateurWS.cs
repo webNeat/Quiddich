@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntitiesLayer;
+using System.Runtime.Serialization;
 namespace WebService
-{
+{   [DataContract]
     public class UtilisateurWS 
     {
-        string nom;
-        string prenom;
-        string login;
-        string password;
+        public string Nom { get; set; }    
+        public string Prenom { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
 
-        public UtilisateurWS(string nom, string prenom, string login, string password) {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.login = login;
-            this.password = password;
+        public UtilisateurWS(Utilisateur user) {
+            this.Nom = user.getNom();
+            this.Prenom = user.getPrenom();
+            this.Login = user.getLogin();
+            this.Password = user.getPassword();
         }
-        public string getPassword(){return password;}
-        public string getLogin() { return login; }
-        public string getNom() { return nom; }
-        public string getPrenom() { return prenom; }
-
-
 
     }
 }

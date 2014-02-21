@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization;
+using EntitiesLayer;
 namespace WebService
 {
-    public class JoueurWS : Personne
+    [DataContract]
+    public class JoueurWS : PersonneWS
     {
         private int nbSelections;
         public int NbSelections
@@ -15,7 +17,6 @@ namespace WebService
             set { nbSelections = value; }
         }
         private int EquipeWSId;
-
         public int EquipeWSID
         {
             get { return EquipeWSId; }
@@ -34,16 +35,12 @@ namespace WebService
             get { return poste; }
             set { poste = value; }
         }
-        public JoueurWS() { }
-        public JoueurWS(int nb, int scor, PosteJoueurWS post, DateTime dateNaissance ,string nom, string prenom): base(dateNaissance, nom, prenom)
+        public JoueurWS(Joueur joueur): base((Personne)joueur)
         {
-            NbSelections = nb;
-            Score = scor;
-            Poste = post;
+            NbSelections = joueur.NbSelections;
+            Score = joueur.Score;
+            Poste = (PosteJoueurWS)joueur.Poste;
         }
-        public string ToString()
-        {
-            return "JoueurWS " + base.ToString() + "  nbSelection : " + NbSelections + " score :" + Score + " poste : " + Poste;  
-        }
+        
     }
 }

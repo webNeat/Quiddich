@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace WebService
-{
-    public class SpectateurWS : Personne
+using EntitiesLayer;
+using System.Runtime.Serialization;
+namespace WebService{
+    [DataContract]
+    public class SpectateurWS : PersonneWS
     {
         public string Adresse
         {
@@ -18,11 +19,10 @@ namespace WebService
             get;
             set;
         }
-        public SpectateurWS() { }
-        public SpectateurWS(string adresse, string email, DateTime dateNaissance, string nom, string prenom): base(dateNaissance, nom, prenom)
+        public SpectateurWS(Spectateur spectateur): base((Personne)spectateur)
         {
-            this.Adresse = adresse;
-            this.Email = email;
+            this.Adresse = spectateur.Adresse;
+            this.Email = spectateur.Email;
         }
     }
 }
