@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntitiesLayer;
 namespace WebService
 {
-    public class EquipeWSWS : EntityObjectWS
+    [DataContract]
+    public class EquipeWS : EntityObjectWS
     {
-        List<JoueurWS> JoueurWSs;
+       
         string nom;
 
         public string Nom
@@ -25,40 +27,12 @@ namespace WebService
             set { pays = value; }
         }
 
-       public EquipeWS(string nom, string pays, List<JoueurWS> JoueurWSs) 
+       public EquipeWS(Equipe equipe) 
         {
-            this.nom = nom;
-            this.pays = pays;
-            this.JoueurWSs = JoueurWSs;
+            this.nom = equipe.Nom;
+            this.pays = equipe.Pays;
+            
         }
-       public EquipeWS(string nom, string pays)
-       {
-           this.nom = nom;
-           this.pays = pays;
-         
-       }
-
-       public EquipeWS(){}
-
-        public override string ToString()
-        {
-            string s = nom + " " + pays;
-            /*
-            for (int i = 0; i < JoueurWSs.Count();i++ )
-            {
-                s += JoueurWSs[i].ToString();
-
-            }
-             */
-            return s;
-           
-        }
-        public List<JoueurWS> getJoueurWSs(){
-            return JoueurWSs;
-        }
-        public void setJoueurWSs(List<JoueurWS> JoueurWSs)
-        {
-            this.JoueurWSs = JoueurWSs;
-        }
+       
     }
 }

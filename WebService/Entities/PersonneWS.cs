@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntitiesLayer;
+using System.Runtime.Serialization;
 namespace WebService
 {
-    public abstract class Personne : EntityObjectWS
+    [DataContract]
+    public abstract class PersonneWS : EntityObjectWS
     {
         private DateTime dateNaissance;
         public System.DateTime DateNaissance
@@ -26,18 +28,12 @@ namespace WebService
             get { return prenom; }
             set { prenom = value; }
         }
-        public Personne()
-        { }
-        public Personne(DateTime d, string n, string p)
+   
+        public PersonneWS(Personne personne)
         {
-            DateNaissance = d;
-            Nom = n;
-            Prenom = p;
-        }
-
-        public string ToString()
-        {
-            return "Nom : " + Nom + "  prenom :" + Prenom + " Date : " + DateNaissance;
+            DateNaissance = personne.DateNaissance;
+            Nom = personne.Nom;
+            Prenom = personne.Prenom;
         }
     }
 }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntitiesLayer;
+using System.Runtime.Serialization;
 
 namespace WebService
 {
+    [DataContract]
     public class StadeWS : EntityObjectWS
     {
         public string Nom
@@ -28,19 +31,13 @@ namespace WebService
             get;
             set;
         }
-
-        StadeWS() { }
-        public StadeWS(string adresse, string nom, int nbplaces, double poureCommission) 
+        public StadeWS(Stade stade ) 
         {
-            this.Adresse = adresse;
-            this.Nom = nom;
-            this.Places = nbplaces;
-            this.Pourcentage = poureCommission;
+            this.Adresse = stade.Adresse;
+            this.Nom = stade.Nom;
+            this.Places = stade.Places;
+            this.Pourcentage = stade.Pourcentage;
         }
 
-        public override string ToString()
-        {
-            return  Nom;
-        }
     }
 }
