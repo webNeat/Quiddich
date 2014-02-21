@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessLayer;
+using EntitiesLayer;
 
 namespace QuidditichWPF
 {
@@ -23,6 +25,10 @@ namespace QuidditichWPF
         {
             InitializeComponent();
             Pilotage.LoadPreferences(this);
+            CoupeManager cm = new CoupeManager();
+            IList<Reservation> res = cm.allReservations();
+            ReservationsViewModel rvm = new ReservationsViewModel(res);
+            reservations.DataContext = rvm;
         }
         protected override void OnClosed(EventArgs e)
         {

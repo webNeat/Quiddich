@@ -12,30 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BusinessLayer;
 using EntitiesLayer;
 
 namespace QuidditichWPF
 {
     /// <summary>
-    /// Logique d'interaction pour CtrlReservation.xaml
+    /// Logique d'interaction pour ReservationsView.xaml
     /// </summary>
-    public partial class CtrlReservation : UserControl
+    public partial class ReservationsView : UserControl
     {
-        public CtrlReservation()
+        public ReservationsView()
         {
-            CoupeManager cm = new CoupeManager();
             InitializeComponent();
-            coupes.ItemsSource = cm.allCoupes();
+           
         }
 
-        private void coupes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Coupe selectedCoupe = (Coupe)coupes.SelectedItem;
-            CoupeManager cm = new CoupeManager();
-            matches.ItemsSource = cm.allMatchofCoupe(selectedCoupe.Id);
+            MainWindow auto = new MainWindow();
+            auto.Show();
         }
-
-
     }
 }

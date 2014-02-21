@@ -135,7 +135,15 @@ namespace DAO
             }
             return coupes;   
         }
-        
+
+        public Coupe getCoupeById(int id)
+        {
+            DataTable table = SelectElementByRequest("SELECT * FROM Coupes WHERE ID = " + id);
+            if(table.Rows.Count < 1)
+                return null;
+            return getCoupeFromRow(table.Rows[0]);
+        }
+
         public Coupe getCoupeFromRow(DataRow row)
         {
             Coupe coupe = new Coupe(Convert.ToInt32(row["Annee"]), Convert.ToString(row["Titre"]));
@@ -169,16 +177,50 @@ namespace DAO
         public Stade getStadeFromRow(DataRow row)
         {
             Stade stade = new Stade(
-                Convert.ToString(row["Adresse"]), 
-                Convert.ToString(row["Nom"]), 
-                Convert.ToInt32(row["NombrePlacesDisponibles"]), 
+                Convert.ToString(row["Adresse"]),
+                Convert.ToString(row["Nom"]),
+                Convert.ToInt32(row["NombrePlacesDisponibles"]),
                 Convert.ToDouble(row["PourcentageCommision"])
             );
             stade.Id = Convert.ToInt32(row["ID"]);
             return stade;
-        
         }
-        
+
+        public IList<Reservation> getReservations()
+        {
+            List<Reservation> res = new List<Reservation>();
+            DataTable table = SelectElementByRequest("SELECT * FROM Reservations");
+
+            foreach (DataRow row in table.Rows)
+            {
+                res.Add(getReservationFromRow(row));
+            }
+            return res;
+        }
+
+        public Reservation getReservationFromRow(DataRow row)
+        {
+            Reservation r = new Reservation(
+                getMatchByID(Convert.ToInt32(row["MatcheID"])),
+                getSpectateurByID(Convert.ToInt32(row["SpectateurID"])),
+                Convert.ToInt32(row["NombrePlacesReservees"]));
+            r.Id = Convert.ToInt32(row["ID"]);
+            return r;
+        }
+
+        public Spectateur getSpectateurFromRow(DataRow row)
+        {
+            Spectateur s = new Spectateur(
+                Convert.ToString(row["Adresse"]),
+                Convert.ToString(row["EMail"]),
+                Convert.ToDateTime(row["DateNaissance"]),
+                Convert.ToString(row["Nom"]),
+                Convert.ToString(row["Prenom"])
+            );
+            s.Id = Convert.ToInt32(row["ID"]);
+            return s;
+        }
+
         public IList<Match> getMatchs()
         {
             List<Match> matches = new List<Match>();
@@ -231,7 +273,23 @@ namespace DAO
             stade.Id = Convert.ToInt32(row["ID"]);
             return stade;
         }
-      
+        public Match getMatchByID(int id)
+        {
+            DataTable dt = SelectElementByRequest("SELECT * FROM Matchs WHERE ID = " + id);
+            if (dt.Rows.Count < 1)
+                return null;
+            DataRow row = dt.Rows[0];
+            return getMatcheFromRow(row);
+        }
+
+        public Spectateur getSpectateurByID(int id)
+        {
+            DataTable dt = SelectElementByRequest("SELECT * FROM Spectateurs WHERE ID = " + id);
+            if (dt.Rows.Count < 1)
+                return null;
+            DataRow row = dt.Rows[0];
+            return getSpectateurFromRow(row);
+        }
         public void addCoupe(Coupe coupe)
         {
             ExecuteElementByRequest("INSERT INTO Coupes (Annee, Titre) VALUES(" + coupe.Year + ", '"+ coupe.Label +"')");
@@ -253,8 +311,8 @@ namespace DAO
         {
             int posteID = (int)joueur.Poste;
             ExecuteElementByRequest("INSERT INTO Joueurs "
-                + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Captaine )"
-                +" VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance + "'," + joueur.EquipeID + "," + posteID + ", 0)"
+                + "( Prenom, Nom, DateNaissance, EquipeID, PosteID, Capitaine )"
+                + " VALUES('" + joueur.Prenom + "','" + joueur.Nom + "','" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd") + "'," + joueur.EquipeID + "," + posteID + ", 0)"
             );
         }
 
@@ -273,7 +331,7 @@ namespace DAO
                + ", DateNaissance = '" + joueur.DateNaissance.Date.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                + ", EquipeID = " + joueur.EquipeID
                + ", PosteID = " + postID
-               + ", Captaine = 0 "  
+               + ", Capitaine = 0 "  
                 + " WHERE ID = " + joueur.Id
            );
         }

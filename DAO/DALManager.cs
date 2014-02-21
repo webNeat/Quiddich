@@ -67,6 +67,11 @@ namespace DAO
             return dal.getMatchs();
         }
 
+        public IList<Reservation> getReservations()
+        {
+            return dal.getReservations();
+        }
+
         public IList<Coupe> getCoupes()
         {
             return dal.getCoupes();
@@ -75,6 +80,11 @@ namespace DAO
         public IList<Match> getMatchesByid(int idCoupe)
         {
             return dal.getMatchesByid(idCoupe);
+        }
+
+        public Coupe getCoupeById(int id)
+        {
+            return dal.getCoupeById(id);
         }
 
         public void addCoupe(Coupe coupe)

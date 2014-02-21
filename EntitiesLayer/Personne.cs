@@ -39,7 +39,5 @@ namespace EntitiesLayer
         {
             return "Nom : " + Nom + "  prenom :" + Prenom + " Date : " + DateNaissance;
         }
-
-
     }
 }

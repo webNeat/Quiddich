@@ -8,18 +8,21 @@ namespace EntitiesLayer
 {
     public class Spectateur : Personne
     {
-        string adresse;
-        string email;
-        Spectateur() { }
-        Spectateur(string adresse, string email, DateTime dateNaissance, string nom, string prenom): base(dateNaissance, nom, prenom)
+        public string Adresse
         {
-            this.adresse = adresse;
-            this.email = email;
+            get;
+            set;
         }
-        public string ToString()
+        public string Email
         {
-            return "Spectatuer " + base.ToString() + " | adresse : " + adresse + " | email :" + email;
+            get;
+            set;
         }
-
+        public Spectateur() { }
+        public Spectateur(string adresse, string email, DateTime dateNaissance, string nom, string prenom): base(dateNaissance, nom, prenom)
+        {
+            this.Adresse = adresse;
+            this.Email = email;
+        }
     }
 }
