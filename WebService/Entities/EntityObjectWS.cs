@@ -21,6 +21,9 @@ namespace WebService
         public EntityObjectWS()
         {
             id = ++numberEntities;
+
+
+
         }
 
         public int getId() {
