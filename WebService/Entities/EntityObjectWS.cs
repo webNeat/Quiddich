@@ -28,19 +28,6 @@ namespace WebService
 
         public int getId() {
             return id;
-        }
-
-        public override bool Equals(object obj)
-        {
-            var item = obj as EntityObjectWS;
-
-            if (item == null)
-            {
-                return false;
-            }
-
-            return this.Id.Equals(item.Id);
-        }
-        
+        }        
     }
 }

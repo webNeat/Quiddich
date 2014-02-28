@@ -13,5 +13,19 @@ namespace WebService
     {
         [OperationContract]
         IList<CoupeWS> GetAllCoupes();
+        [OperationContract]
+        IList<CoupeWS> GetAllEquipes();
+        [OperationContract]
+        IList<CoupeWS> GetJoueursOfEquipe(int id);
+        [OperationContract]
+        IList<CoupeWS> GetAllStades();
+        [OperationContract]
+        IList<CoupeWS> GetMatchesOfCoupe(int id);
+        [OperationContract]
+        int MakeReservation(int matchId, string nom, string prenom, DateTime dateNaissance, string adresse, string email, int numberPlaces);
+        [OperationContract]
+        void CompleteReservation(int id);
+        [OperationContract]
+        int CancelReservation(int id);
     }
 }

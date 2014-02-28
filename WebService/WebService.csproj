@@ -65,6 +65,15 @@
   <ItemGroup>
     <Compile Include="Entities\CoupeWS.cs" />
     <Compile Include="Entities\EntityObjectWS.cs" />
+    <Compile Include="Entities\EquipeWS.cs" />
+    <Compile Include="Entities\JoueurWS.cs" />
+    <Compile Include="Entities\MatchWS.cs" />
+    <Compile Include="Entities\PersonneWS.cs" />
+    <Compile Include="Entities\PosteJoueurWS.cs" />
+    <Compile Include="Entities\ReservationWS.cs" />
+    <Compile Include="Entities\SpectateurWS.cs" />
+    <Compile Include="Entities\StadeWS.cs" />
+    <Compile Include="Entities\UtilisateurWS.cs" />
     <Compile Include="IServiceQuiddich.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceQuiddich.svc.cs">

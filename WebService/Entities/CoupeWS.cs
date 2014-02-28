@@ -13,12 +13,14 @@ namespace WebService
     public class CoupeWS : EntityObjectWS
     {
         int year;
+        [DataMember]
         public int Year
         {
             get { return year; }
             set { year = value; }
         }
         string label;
+        [DataMember]
         public string Label
         {
             get { return label; }
