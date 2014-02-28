@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace UnitTestProject1
 {
@@ -10,7 +11,8 @@ namespace UnitTestProject1
         public void GetAllCoupes()
         {
             ServiceReference1.ServiceQuiddichClient client = new ServiceReference1.ServiceQuiddichClient();
-            var coupes = client.GetAllCoupes();
+            IList<ServiceReference1.CoupeWS> coupes = client.GetAllCoupes();
+            Assert.AreEqual(2011, coupes[0].Year);
         }
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Entities\JoueurWS.cs" />
     <Compile Include="Entities\MatchWS.cs" />
     <Compile Include="Entities\PersonneWS.cs" />
+    <Compile Include="Entities\PosteJoueurWS.cs" />
     <Compile Include="Entities\ReservationWS.cs" />
     <Compile Include="Entities\SpectateurWS.cs" />
     <Compile Include="Entities\StadeWS.cs" />

@@ -13,16 +13,149 @@
   <wsdl:message name="IServiceQuiddich_GetAllCoupes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCoupesResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetAllEquipes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetAllEquipes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetJoueursOfEquipe_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJoueursOfEquipe" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetJoueursOfEquipe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJoueursOfEquipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetAllStades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStades" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetAllStades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetMatchesOfCoupe_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchesOfCoupe" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_GetMatchesOfCoupe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchesOfCoupeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_MakeReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeReservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_MakeReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CompleteReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteReservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CompleteReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CancelReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelReservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CancelReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelReservationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceQuiddich">
     <wsdl:operation name="GetAllCoupes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllCoupes" message="tns:IServiceQuiddich_GetAllCoupes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllCoupesResponse" message="tns:IServiceQuiddich_GetAllCoupes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllEquipes" message="tns:IServiceQuiddich_GetAllEquipes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllEquipesResponse" message="tns:IServiceQuiddich_GetAllEquipes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJoueursOfEquipe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipe" message="tns:IServiceQuiddich_GetJoueursOfEquipe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipeResponse" message="tns:IServiceQuiddich_GetJoueursOfEquipe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllStades" message="tns:IServiceQuiddich_GetAllStades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllStadesResponse" message="tns:IServiceQuiddich_GetAllStades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchesOfCoupe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupe" message="tns:IServiceQuiddich_GetMatchesOfCoupe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupeResponse" message="tns:IServiceQuiddich_GetMatchesOfCoupe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/MakeReservation" message="tns:IServiceQuiddich_MakeReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/MakeReservationResponse" message="tns:IServiceQuiddich_MakeReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/CompleteReservation" message="tns:IServiceQuiddich_CompleteReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/CompleteReservationResponse" message="tns:IServiceQuiddich_CompleteReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/CancelReservation" message="tns:IServiceQuiddich_CancelReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/CancelReservationResponse" message="tns:IServiceQuiddich_CancelReservation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceQuiddich" type="tns:IServiceQuiddich">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAllCoupes">
       <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetAllCoupes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipes">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetAllEquipes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJoueursOfEquipe">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStades">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetAllStades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchesOfCoupe">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeReservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/MakeReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteReservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/CompleteReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/CancelReservation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

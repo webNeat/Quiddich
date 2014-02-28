@@ -18,6 +18,38 @@ namespace UnitTestProject1.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="CoupeWS", Namespace="http://schemas.datacontract.org/2004/07/WebService")]
     [System.SerializableAttribute()]
     public partial class CoupeWS : UnitTestProject1.ServiceReference1.EntityObjectWS {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LabelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int YearField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Label {
+            get {
+                return this.LabelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LabelField, value) != true)) {
+                    this.LabelField = value;
+                    this.RaisePropertyChanged("Label");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Year {
+            get {
+                return this.YearField;
+            }
+            set {
+                if ((this.YearField.Equals(value) != true)) {
+                    this.YearField = value;
+                    this.RaisePropertyChanged("Year");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -59,6 +91,48 @@ namespace UnitTestProject1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetAllCoupes", ReplyAction="http://tempuri.org/IServiceQuiddich/GetAllCoupesResponse")]
         System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllCoupesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetAllEquipes", ReplyAction="http://tempuri.org/IServiceQuiddich/GetAllEquipesResponse")]
+        UnitTestProject1.ServiceReference1.CoupeWS[] GetAllEquipes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetAllEquipes", ReplyAction="http://tempuri.org/IServiceQuiddich/GetAllEquipesResponse")]
+        System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllEquipesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipe", ReplyAction="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipeResponse")]
+        UnitTestProject1.ServiceReference1.CoupeWS[] GetJoueursOfEquipe(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipe", ReplyAction="http://tempuri.org/IServiceQuiddich/GetJoueursOfEquipeResponse")]
+        System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetJoueursOfEquipeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetAllStades", ReplyAction="http://tempuri.org/IServiceQuiddich/GetAllStadesResponse")]
+        UnitTestProject1.ServiceReference1.CoupeWS[] GetAllStades();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetAllStades", ReplyAction="http://tempuri.org/IServiceQuiddich/GetAllStadesResponse")]
+        System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllStadesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupe", ReplyAction="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupeResponse")]
+        UnitTestProject1.ServiceReference1.CoupeWS[] GetMatchesOfCoupe(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupe", ReplyAction="http://tempuri.org/IServiceQuiddich/GetMatchesOfCoupeResponse")]
+        System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetMatchesOfCoupeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/MakeReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/MakeReservationResponse")]
+        int MakeReservation(int matchId, string nom, string prenom, System.DateTime dateNaissance, string adresse, string email, int numberPlaces);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/MakeReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/MakeReservationResponse")]
+        System.Threading.Tasks.Task<int> MakeReservationAsync(int matchId, string nom, string prenom, System.DateTime dateNaissance, string adresse, string email, int numberPlaces);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/CompleteReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/CompleteReservationResponse")]
+        void CompleteReservation(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/CompleteReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/CompleteReservationResponse")]
+        System.Threading.Tasks.Task CompleteReservationAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/CancelReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/CancelReservationResponse")]
+        int CancelReservation(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceQuiddich/CancelReservation", ReplyAction="http://tempuri.org/IServiceQuiddich/CancelReservationResponse")]
+        System.Threading.Tasks.Task<int> CancelReservationAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -94,6 +168,62 @@ namespace UnitTestProject1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllCoupesAsync() {
             return base.Channel.GetAllCoupesAsync();
+        }
+        
+        public UnitTestProject1.ServiceReference1.CoupeWS[] GetAllEquipes() {
+            return base.Channel.GetAllEquipes();
+        }
+        
+        public System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllEquipesAsync() {
+            return base.Channel.GetAllEquipesAsync();
+        }
+        
+        public UnitTestProject1.ServiceReference1.CoupeWS[] GetJoueursOfEquipe(int id) {
+            return base.Channel.GetJoueursOfEquipe(id);
+        }
+        
+        public System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetJoueursOfEquipeAsync(int id) {
+            return base.Channel.GetJoueursOfEquipeAsync(id);
+        }
+        
+        public UnitTestProject1.ServiceReference1.CoupeWS[] GetAllStades() {
+            return base.Channel.GetAllStades();
+        }
+        
+        public System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetAllStadesAsync() {
+            return base.Channel.GetAllStadesAsync();
+        }
+        
+        public UnitTestProject1.ServiceReference1.CoupeWS[] GetMatchesOfCoupe(int id) {
+            return base.Channel.GetMatchesOfCoupe(id);
+        }
+        
+        public System.Threading.Tasks.Task<UnitTestProject1.ServiceReference1.CoupeWS[]> GetMatchesOfCoupeAsync(int id) {
+            return base.Channel.GetMatchesOfCoupeAsync(id);
+        }
+        
+        public int MakeReservation(int matchId, string nom, string prenom, System.DateTime dateNaissance, string adresse, string email, int numberPlaces) {
+            return base.Channel.MakeReservation(matchId, nom, prenom, dateNaissance, adresse, email, numberPlaces);
+        }
+        
+        public System.Threading.Tasks.Task<int> MakeReservationAsync(int matchId, string nom, string prenom, System.DateTime dateNaissance, string adresse, string email, int numberPlaces) {
+            return base.Channel.MakeReservationAsync(matchId, nom, prenom, dateNaissance, adresse, email, numberPlaces);
+        }
+        
+        public void CompleteReservation(int id) {
+            base.Channel.CompleteReservation(id);
+        }
+        
+        public System.Threading.Tasks.Task CompleteReservationAsync(int id) {
+            return base.Channel.CompleteReservationAsync(id);
+        }
+        
+        public int CancelReservation(int id) {
+            return base.Channel.CancelReservation(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> CancelReservationAsync(int id) {
+            return base.Channel.CancelReservationAsync(id);
         }
     }
 }
