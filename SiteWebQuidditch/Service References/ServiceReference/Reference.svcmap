@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c0cd764-d566-4f24-9b84-cd86ac266680" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1067/ServiceQuiddich.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceQuiddich.xsd" MetadataType="Schema" ID="86f6b27e-d08d-4f38-bb79-30f569a772ee" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceQuiddich1.xsd" MetadataType="Schema" ID="f1f89ccb-a97a-4315-9731-0d5adbc40248" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceQuiddich.wsdl" MetadataType="Wsdl" ID="46a85bdc-039a-47e3-a56d-1ecdc2e7b067" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?wsdl" />
+    <MetadataFile FileName="ServiceQuiddich.disco" MetadataType="Disco" ID="dd70039d-4255-4c2e-8b3f-0ef03053f9cc" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?disco" />
+    <MetadataFile FileName="ServiceQuiddich2.xsd" MetadataType="Schema" ID="817c334c-d054-4c62-a66c-94e749a59aa1" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

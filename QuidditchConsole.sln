@@ -22,6 +22,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebService", "UnitTestP
 		{111FF8E7-89CA-429F-ACBE-210F0BF94A58} = {111FF8E7-89CA-429F-ACBE-210F0BF94A58}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWebQuidditch", "SiteWebQuidditch\SiteWebQuidditch.csproj", "{1865B7CD-F89B-4CC5-BBE6-4098D64F45BB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{111FF8E7-89CA-429F-ACBE-210F0BF94A58} = {111FF8E7-89CA-429F-ACBE-210F0BF94A58}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +69,10 @@ Global
 		{A2CC6A43-441E-4960-9A46-36B7DB5C4943}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2CC6A43-441E-4960-9A46-36B7DB5C4943}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2CC6A43-441E-4960-9A46-36B7DB5C4943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1865B7CD-F89B-4CC5-BBE6-4098D64F45BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1865B7CD-F89B-4CC5-BBE6-4098D64F45BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1865B7CD-F89B-4CC5-BBE6-4098D64F45BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1865B7CD-F89B-4CC5-BBE6-4098D64F45BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
