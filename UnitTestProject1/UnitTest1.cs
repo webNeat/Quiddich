@@ -12,7 +12,7 @@ namespace UnitTestProject1
         {
             ServiceReference1.ServiceQuiddichClient client = new ServiceReference1.ServiceQuiddichClient();
             IList<ServiceReference1.CoupeWS> coupes = client.GetAllCoupes();
-            Assert.AreEqual(2011, coupes[0].Year);
+            Assert.AreEqual(coupes[0].Year, 2010);
         }
     }
 }

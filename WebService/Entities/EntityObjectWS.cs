@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WebService
 {
     [DataContract]
-    public abstract class EntityObjectWS
+    public class EntityObjectWS
     {
         public static int numberEntities;
         public int id;
@@ -21,9 +21,6 @@ namespace WebService
         public EntityObjectWS()
         {
             id = ++numberEntities;
-
-
-
         }
 
         public int getId() {

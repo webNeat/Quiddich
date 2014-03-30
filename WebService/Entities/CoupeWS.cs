@@ -26,10 +26,19 @@ namespace WebService
             get { return label; }
             set { label = value; }
         }
+        int id;
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public CoupeWS(Coupe coupe) 
         {
             this.year = coupe.Year;
             this.Label = coupe.Label;
+            this.id = coupe.Id;
         }
     }
 }

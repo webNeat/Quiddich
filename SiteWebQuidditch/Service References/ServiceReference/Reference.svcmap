@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c0cd764-d566-4f24-9b84-cd86ac266680" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10060b2b-2900-436e-8d4a-374f4b78b6a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:1067/ServiceQuiddich.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceQuiddich.xsd" MetadataType="Schema" ID="86f6b27e-d08d-4f38-bb79-30f569a772ee" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServiceQuiddich1.xsd" MetadataType="Schema" ID="f1f89ccb-a97a-4315-9731-0d5adbc40248" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceQuiddich.wsdl" MetadataType="Wsdl" ID="46a85bdc-039a-47e3-a56d-1ecdc2e7b067" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?wsdl" />
-    <MetadataFile FileName="ServiceQuiddich.disco" MetadataType="Disco" ID="dd70039d-4255-4c2e-8b3f-0ef03053f9cc" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?disco" />
-    <MetadataFile FileName="ServiceQuiddich2.xsd" MetadataType="Schema" ID="817c334c-d054-4c62-a66c-94e749a59aa1" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceQuiddich1.xsd" MetadataType="Schema" ID="bae58625-58bb-4e37-9ecc-83a4b1c0c4d9" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceQuiddich2.xsd" MetadataType="Schema" ID="0fe9fbe2-15a4-47a9-97a0-3c4ef210f369" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceQuiddich1.wsdl" MetadataType="Wsdl" ID="a6dd53cd-1b76-4051-a525-6aa542940918" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?wsdl" />
+    <MetadataFile FileName="ServiceQuiddich.disco" MetadataType="Disco" ID="ad911de5-206d-4763-93b8-b75fd7eafc6e" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?disco" />
+    <MetadataFile FileName="ServiceQuiddich.xsd" MetadataType="Schema" ID="c1b5917f-bc47-4f87-bfae-d045462986bb" SourceId="1" SourceUrl="http://localhost:1067/ServiceQuiddich.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

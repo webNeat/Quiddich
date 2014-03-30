@@ -60,21 +60,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />
-    <Content Include="Service References\ServiceReference\ServiceQuiddich.disco" />
-    <Content Include="Service References\ServiceReference\configuration91.svcinfo" />
-    <Content Include="Service References\ServiceReference\configuration.svcinfo" />
-    <Content Include="Service References\ServiceReference\Reference.svcmap">
+    <Content Include="Javascripts\bootstrap.min.js" />
+    <Content Include="Javascripts\handler.js" />
+    <Content Include="Javascripts\jquery.min.js" />
+    <Content Include="Javascripts\matches.js" />
+    <Content Include="matches.aspx" />
+    <Content Include="reservation.aspx" />
+    <None Include="Service References\ServiceReference\ServiceQuiddich.disco" />
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
+    <Content Include="Styles\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
     <Content Include="master.Master" />
-    <None Include="Service References\ServiceReference\ServiceQuiddich2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.CoupeWS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="index.aspx.cs">
@@ -91,7 +94,21 @@
     <Compile Include="master.Master.designer.cs">
       <DependentUpon>master.Master</DependentUpon>
     </Compile>
+    <Compile Include="matches.aspx.cs">
+      <DependentUpon>matches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="matches.aspx.designer.cs">
+      <DependentUpon>matches.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reservation.aspx.cs">
+      <DependentUpon>reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reservation.aspx.designer.cs">
+      <DependentUpon>reservation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,13 +116,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service References\ServiceReference\ServiceQuiddich.wsdl" />
     <None Include="Service References\ServiceReference\ServiceQuiddich.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference\ServiceQuiddich1.wsdl" />
     <None Include="Service References\ServiceReference\ServiceQuiddich1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference\ServiceQuiddich2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.CoupeWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.EquipeWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.JoueurWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.MatchWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\SiteWebQuidditch.ServiceReference.StadeWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,12 +151,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Javascripts\" />
-    <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

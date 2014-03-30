@@ -10,6 +10,6 @@
 namespace SiteWebQuidditch {
     
     
-    public partial class index {
+    public partial class reservation {
     }
 }

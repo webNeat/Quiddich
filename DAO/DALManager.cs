@@ -172,6 +172,12 @@ namespace DAO
         {
             dal.updateStade(stade);
         }
-      
+
+
+
+        public IList<Joueur> getJoueursOfEquipe(int idEquipe)
+        {
+            return dal.getJoueursOfEquipe(idEquipe);
+        }
     }
 }

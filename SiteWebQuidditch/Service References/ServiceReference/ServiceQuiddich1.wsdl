@@ -13,6 +13,12 @@
   <wsdl:message name="IServiceQuiddich_GetAllCoupes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCoupesResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_Hello_InputMessage">
+    <wsdl:part name="parameters" element="tns:Hello" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_Hello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HelloResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceQuiddich_GetAllEquipes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEquipes" />
   </wsdl:message>
@@ -55,10 +61,26 @@
   <wsdl:message name="IServiceQuiddich_CancelReservation_OutputMessage">
     <wsdl:part name="parameters" element="tns:CancelReservationResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CheckUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceQuiddich_CheckUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceQuiddich">
     <wsdl:operation name="GetAllCoupes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllCoupes" message="tns:IServiceQuiddich_GetAllCoupes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllCoupesResponse" message="tns:IServiceQuiddich_GetAllCoupes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Hello">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/Hello" message="tns:IServiceQuiddich_Hello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/HelloResponse" message="tns:IServiceQuiddich_Hello_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEquipes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/GetAllEquipes" message="tns:IServiceQuiddich_GetAllEquipes_InputMessage" />
@@ -88,11 +110,28 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/CancelReservation" message="tns:IServiceQuiddich_CancelReservation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/CancelReservationResponse" message="tns:IServiceQuiddich_CancelReservation_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/CreateUser" message="tns:IServiceQuiddich_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/CreateUserResponse" message="tns:IServiceQuiddich_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceQuiddich/CheckUser" message="tns:IServiceQuiddich_CheckUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceQuiddich/CheckUserResponse" message="tns:IServiceQuiddich_CheckUser_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceQuiddich" type="tns:IServiceQuiddich">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAllCoupes">
       <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/GetAllCoupes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hello">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/Hello" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -156,6 +195,24 @@
     </wsdl:operation>
     <wsdl:operation name="CancelReservation">
       <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/CancelReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceQuiddich/CheckUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

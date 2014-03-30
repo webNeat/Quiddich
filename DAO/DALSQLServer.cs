@@ -55,7 +55,7 @@ namespace DAO
         public IList<Joueur> getJoueursOfEquipe(int idEquipe)
         {
             List<Joueur> joueurs = new List<Joueur>();
-            DataTable table = SelectElementByRequest("SELECT * FROM Joueurs WHERE EquipeID = " + equipeId);
+            DataTable table = SelectElementByRequest("SELECT * FROM Joueurs WHERE EquipeID = " + idEquipe);
 
             foreach (DataRow row in table.Rows)
             {

@@ -6,11 +6,12 @@ using System.ServiceModel;
 using System.Text;
 using BusinessLayer;
 using EntitiesLayer;
+using System.ServiceModel.Activation;
+using System.ServiceModel.Web;
 
 namespace WebService
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "ServiceQuiddich" à la fois dans le code, le fichier svc et le fichier de configuration.
-    // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez ServiceQuiddich.svc ou ServiceQuiddich.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
+//    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ServiceQuiddich : IServiceQuiddich
     {
         private CoupeManager cm = new CoupeManager();
@@ -24,6 +25,11 @@ namespace WebService
                 result.Add(new CoupeWS(coupe));
             }
             return result;
+        }
+
+        public string Hello() {
+            string message = "I am testing";
+            return message;
         }
 
         public IList<StadeWS> GetAllStades()

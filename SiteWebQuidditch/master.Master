@@ -4,16 +4,18 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title> Quidditch </title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <!-- CSS -->
+    <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Styles/style.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+    <asp:ContentPlaceHolder ID="content" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- jQuery -->
+    <script type="text/javascript" src="Javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Javascripts/bootstrap.min.js"></script>
+    <!-- Additional Scripts -->
+    <asp:ContentPlaceHolder ID="scripts" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
