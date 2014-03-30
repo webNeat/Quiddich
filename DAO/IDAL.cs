@@ -17,7 +17,10 @@ namespace DAO
         IList<Reservation> getReservations();
         IList<Coupe> getCoupes();
         IList<Match> getMatchesByid(int idCoupe);
+        IList<Joueur> getJoueursOfEquipe(int idEquipe);
 
+       // int addReservation(Reservation reservation);
+        //void annulerReservation(int id);
         Coupe getCoupeById(int id);
         void addCoupe(Coupe coupe);
         void deleteCoupe(Coupe coupe);

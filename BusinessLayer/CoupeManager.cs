@@ -17,7 +17,14 @@ namespace BusinessLayer
         {
             data = DALManager.GetInstance(DALProvider.SQLSERVER);
         }
-
+        public IList<Match> getMatchesByid(int id)
+        {
+            return data.getMatchesByid(id);
+        }
+        public IList<Joueur> getJoueursOfEquipe(int idEquipe)
+        {
+            return data.getJoueursOfEquipe(idEquipe);
+        }
         public IList<Equipe> allEquipes()
         {
             return data.getEquipes();
@@ -98,6 +105,13 @@ namespace BusinessLayer
 
             data.addMatch(new Match(coupeId, date, equipeD, equipeV, prix, scoreV, scoreD, stade));
         }
+        /*
+        public int addReservation(int places, int coupeId, DateTime date, double prix, Stade stade, Equipe equipeD, Equipe equipeV, int scoreD, int scoreV, string adresse, string nom, string prenom)
+        {
+            Spectateur spectateur = new Spectateur(adresse,"", DateTime.UtcNow, nom, prenom);
+            Match match = new Match(coupeId, date, equipeD, equipeV, prix, scoreV, scoreD,stade);
+            return data.addReservation(new Reservation(match, spectateur, places));
+        */
         public void deleteMatch(Match match)
         {
             data.deleteMatch(match);
