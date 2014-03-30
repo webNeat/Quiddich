@@ -4,6 +4,6 @@
         xmlns:local="clr-namespace:QuidditichWPF" x:Class="QuidditichWPF.ListeReservationsWindow"
         Title="ListeReservationsWindow" Height="450" Width="530">
     <Grid>
-        <local:ReservationsView x:Name="reservations" />
+        <local:ReservationsView x:Name="reservations" Loaded="reservations_Loaded" />
     </Grid>
 </Window>

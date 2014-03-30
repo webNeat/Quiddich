@@ -52,7 +52,7 @@ namespace DAO
             return joueurs;
         }
 
-        public IList<Joueur> getJoueursOfEquipe(int equipeId)
+        public IList<Joueur> getJoueursOfEquipe(int idEquipe)
         {
             List<Joueur> joueurs = new List<Joueur>();
             DataTable table = SelectElementByRequest("SELECT * FROM Joueurs WHERE EquipeID = " + equipeId);
@@ -186,6 +186,7 @@ namespace DAO
             return stade;
         }
 
+       
         public IList<Reservation> getReservations()
         {
             List<Reservation> res = new List<Reservation>();
@@ -441,5 +442,26 @@ namespace DAO
             Utilisateur user = new Utilisateur("", "", Convert.ToString(row["Login"]), Convert.ToString(row["Password"])); 
             return user;
         }
+
+        /*
+        public int addReservation(Reservation reservation)
+        {
+            ExecuteElementByRequest("INSERT INTO Reservations (CoupeID, SpectateurID, MatcheID, NombrePlacesReservee, CodeAnnulation) VALUES(" 
+                + reservation.MyMatch.CoupeId
+                + "," + reservation.MySpectateur.Id 
+                + "," + reservation.MyMatch.Id 
+                + "," + reservation.Places 
+                + "," + 5 + ")"
+            );
+
+            return reservation.Id;
+        }
+
+
+        public void annulerReservation(int id)
+        {
+            ExecuteElementByRequest("DELETE FROM Reservations WHERE ID = " + id);
+        }
+         * */
     }
 }

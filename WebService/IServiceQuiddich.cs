@@ -14,18 +14,23 @@ namespace WebService
         [OperationContract]
         IList<CoupeWS> GetAllCoupes();
         [OperationContract]
-        IList<CoupeWS> GetAllEquipes();
+        IList<EquipeWS> GetAllEquipes();
         [OperationContract]
-        IList<CoupeWS> GetJoueursOfEquipe(int id);
+        IList<JoueurWS> GetJoueursOfEquipe(int id);
         [OperationContract]
-        IList<CoupeWS> GetAllStades();
+        IList<StadeWS> GetAllStades();
         [OperationContract]
-        IList<CoupeWS> GetMatchesOfCoupe(int id);
+        IList<MatchWS> GetMatchesOfCoupe(int id);
         [OperationContract]
         int MakeReservation(int matchId, string nom, string prenom, DateTime dateNaissance, string adresse, string email, int numberPlaces);
         [OperationContract]
         void CompleteReservation(int id);
         [OperationContract]
         int CancelReservation(int id);
+        [OperationContract]
+        void CreateUser(string nom, string prenom, string login, string password);
+        [OperationContract]
+        void CheckUser(string login, string password);
+
     }
 }

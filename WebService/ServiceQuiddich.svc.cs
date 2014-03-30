@@ -26,30 +26,69 @@ namespace WebService
             return result;
         }
 
-        public IList<CoupeWS> GetAllStades()
+        public IList<StadeWS> GetAllStades()
         {
-            throw new NotImplementedException();
+            List<StadeWS> result = new List<StadeWS>();
+            IList<Stade> list = cm.allStades();
+            foreach(Stade stade in list)
+            {
+                result.Add(new StadeWS(stade));
+
+            }
+            return result;
         }
 
-        public IList<CoupeWS> GetAllEquipes()
+        public IList<EquipeWS> GetAllEquipes()
         {
-            throw new NotImplementedException();
+            List<EquipeWS> result = new List<EquipeWS>();
+            IList<Equipe> list = cm.allEquipes();
+            foreach (Equipe equipe in list)
+            {
+                result.Add(new EquipeWS(equipe));
+
+            }
+            return result;
         }
 
-        public IList<CoupeWS> GetJoueursOfEquipe(int id)
+        public IList<JoueurWS> GetJoueursOfEquipe(int id)
         {
-            throw new NotImplementedException();
+            List<JoueurWS> result = new List<JoueurWS>();
+            IList<Joueur> list = cm.getJoueursOfEquipe(id);
+            foreach (Joueur joueur in list)
+            {
+                result.Add(new JoueurWS(joueur));
+
+            }
+            return result;
         }
 
-        public IList<CoupeWS> GetMatchesOfCoupe(int id)
+        public IList<MatchWS> GetMatchesOfCoupe(int id)
         {
-            throw new NotImplementedException();
+            List<MatchWS> result = new List<MatchWS>();
+            IList<Match> list = cm.getMatchesByid(id);
+            foreach (Match match in list)
+            {
+                result.Add(new MatchWS(match));
+
+            }
+            return result;
         }
 
         public int MakeReservation(int matchId, string nom, string prenom, DateTime dateNaissance, string adresse, string email, int numberPlaces)
-        {
-            throw new NotImplementedException();
-        }
+        {/*
+            Coupe coupe = cm.getCoupeById(matchId);
+            IList<Match> matchs = cm.getMatchesByid(coupe.Id);
+            Match match = null;
+            foreach (Match m in matchs)
+            {
+                if(m.Id.Equals(matchId))
+                     match = m;
+
+            }
+            cm.addReservation(numberPlaces, coupe.Id, dateNaissance, match.Prix, match.Stade, match.EquipeDomicile, match.EquipeVisiteur
+                , match.ScoreDomicile, match.ScoreVisiteur, adresse, nom, prenom); */
+            return 0;
+      }
 
         public void CompleteReservation(int id)
         {
@@ -59,6 +98,18 @@ namespace WebService
         public int CancelReservation(int id)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void CreateUser(string nom, string prenom, string login, string password)
+        {
+
+            cm.addUtilisateur(new Utilisateur(nom, prenom, login, password));
+        }
+
+        public void CheckUser(string login, string password)
+        {
+            cm.Login(login, password);
         }
     }
 }

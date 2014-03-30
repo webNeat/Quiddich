@@ -35,5 +35,10 @@ namespace QuidditichWPF
             Pilotage.SavePreferences(this);
             base.OnClosed(e);
         }
+
+        private void reservations_Loaded(object sender, RoutedEventArgs e)
+        {
+             //cm.addReservation
+        }
     }
 }
